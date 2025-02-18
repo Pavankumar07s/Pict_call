@@ -824,3 +824,944 @@ fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening 
 2025-02-18 23:45:01,817 - main - INFO - Processing audio chunk
 2025-02-18 23:45:01,817 - main - INFO - Direct load failed, trying conversion...
 2025-02-18 23:45:01,894 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (97020,)
+2025-02-18 23:45:04,170 - main - INFO - Transcription complete:  We'll only be happy for that!
+2025-02-18 23:45:04,171 - main - INFO - Transcription:  We'll only be happy for that!
+2025-02-18 23:45:04,171 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902504.171199 detected_keywords=[]
+2025-02-18 23:45:04,815 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:04,815 - main - INFO - Processing audio chunk
+2025-02-18 23:45:04,816 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:04,956 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (13230,)
+2025-02-18 23:45:05,575 - main - INFO - Transcription complete: 
+2025-02-18 23:45:05,575 - main - INFO - Transcription: 
+2025-02-18 23:45:05,575 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902505.575539 detected_keywords=[]
+2025-02-18 23:45:07,813 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:07,813 - main - INFO - Processing audio chunk
+2025-02-18 23:45:07,814 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:07,890 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:45:08,551 - main - INFO - Transcription complete: 
+2025-02-18 23:45:08,551 - main - INFO - Transcription: 
+2025-02-18 23:45:08,551 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902508.551377 detected_keywords=[]
+2025-02-18 23:45:10,778 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:10,778 - main - INFO - Processing audio chunk
+2025-02-18 23:45:10,778 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:10,855 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:45:12,860 - main - INFO - Transcription complete:  And here is one simple liar
+2025-02-18 23:45:12,860 - main - INFO - Transcription:  And here is one simple liar
+2025-02-18 23:45:12,860 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902512.860542 detected_keywords=[]
+2025-02-18 23:45:13,795 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:13,795 - main - INFO - Processing audio chunk
+2025-02-18 23:45:13,795 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:13,871 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (26460,)
+2025-02-18 23:45:14,430 - main - INFO - Transcription complete: 
+2025-02-18 23:45:14,430 - main - INFO - Transcription: 
+2025-02-18 23:45:14,430 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902514.430261 detected_keywords=[]
+2025-02-18 23:45:16,812 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:16,812 - main - INFO - Processing audio chunk
+2025-02-18 23:45:16,812 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:16,889 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (89964,)
+2025-02-18 23:45:25,873 - main - INFO - Transcription complete:  G�ri
+2025-02-18 23:45:25,873 - main - INFO - Transcription:  G�ri
+2025-02-18 23:45:25,873 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902525.873654 detected_keywords=[]
+2025-02-18 23:45:28,764 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:28,764 - main - INFO - Processing audio chunk
+2025-02-18 23:45:28,764 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:28,840 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (112896,)
+2025-02-18 23:45:30,853 - main - INFO - Transcription complete:  제가
+2025-02-18 23:45:30,853 - main - INFO - Transcription:  제가
+2025-02-18 23:45:30,853 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902530.853702 detected_keywords=[]
+2025-02-18 23:45:31,755 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:31,755 - main - INFO - Processing audio chunk
+2025-02-18 23:45:31,755 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:31,832 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (25578,)
+2025-02-18 23:45:32,415 - main - INFO - Transcription complete: 
+2025-02-18 23:45:32,415 - main - INFO - Transcription: 
+2025-02-18 23:45:32,415 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902532.415533 detected_keywords=[]
+2025-02-18 23:45:34,765 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:34,765 - main - INFO - Processing audio chunk
+2025-02-18 23:45:34,765 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:34,850 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (89082,)
+2025-02-18 23:45:36,844 - main - INFO - Transcription complete: 再做一下
+2025-02-18 23:45:36,844 - main - INFO - Transcription: 再做一下
+2025-02-18 23:45:36,844 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902536.8447 detected_keywords=[]
+2025-02-18 23:45:37,767 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:37,767 - main - INFO - Processing audio chunk
+2025-02-18 23:45:37,768 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:37,839 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (21168,)
+2025-02-18 23:45:38,421 - main - INFO - Transcription complete: 
+2025-02-18 23:45:38,421 - main - INFO - Transcription: 
+2025-02-18 23:45:38,421 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902538.421726 detected_keywords=[]
+2025-02-18 23:45:40,747 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:40,747 - main - INFO - Processing audio chunk
+2025-02-18 23:45:40,747 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:40,821 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (88200,)
+2025-02-18 23:45:43,042 - main - INFO - Transcription complete:  Türk выfuldüğü Görüşürüz
+2025-02-18 23:45:43,043 - main - INFO - Transcription:  Türk выfuldüğü Görüşürüz
+2025-02-18 23:45:43,043 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902543.043345 detected_keywords=[]
+2025-02-18 23:45:43,746 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:43,746 - main - INFO - Processing audio chunk
+2025-02-18 23:45:43,747 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:43,821 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (16758,)
+2025-02-18 23:45:44,379 - main - INFO - Transcription complete: 
+2025-02-18 23:45:44,379 - main - INFO - Transcription: 
+2025-02-18 23:45:44,379 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902544.379609 detected_keywords=[]
+2025-02-18 23:45:46,737 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:46,737 - main - INFO - Processing audio chunk
+2025-02-18 23:45:46,737 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:46,812 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (89964,)
+2025-02-18 23:45:47,851 - main - INFO - Transcription complete:  لیکن اجرام پلی
+2025-02-18 23:45:47,851 - main - INFO - Transcription:  لیکن اجرام پلی
+2025-02-18 23:45:47,851 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902547.851811 detected_keywords=[]
+2025-02-18 23:45:49,730 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:49,730 - main - INFO - Processing audio chunk
+2025-02-18 23:45:49,730 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:49,807 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (67914,)
+2025-02-18 23:45:50,493 - main - INFO - Transcription complete:  kai kalam
+2025-02-18 23:45:50,494 - main - INFO - Transcription:  kai kalam
+2025-02-18 23:45:50,494 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902550.494105 detected_keywords=[]
+2025-02-18 23:45:52,720 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:52,720 - main - INFO - Processing audio chunk
+2025-02-18 23:45:52,720 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:52,794 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:45:54,954 - main - INFO - Transcription complete:  β allem
+2025-02-18 23:45:54,954 - main - INFO - Transcription:  β allem
+2025-02-18 23:45:54,954 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902554.954898 detected_keywords=[]
+2025-02-18 23:45:55,704 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:55,705 - main - INFO - Processing audio chunk
+2025-02-18 23:45:55,705 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:55,780 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (18522,)
+2025-02-18 23:45:56,336 - main - INFO - Transcription complete: 
+2025-02-18 23:45:56,336 - main - INFO - Transcription: 
+2025-02-18 23:45:56,337 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902556.336961 detected_keywords=[]
+2025-02-18 23:45:58,710 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:45:58,710 - main - INFO - Processing audio chunk
+2025-02-18 23:45:58,710 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:45:58,787 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (89964,)
+2025-02-18 23:45:59,467 - main - INFO - Transcription complete:  but its a context guy
+2025-02-18 23:45:59,467 - main - INFO - Transcription:  but its a context guy
+2025-02-18 23:45:59,467 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902559.467268 detected_keywords=[]
+2025-02-18 23:46:01,705 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:01,705 - main - INFO - Processing audio chunk
+2025-02-18 23:46:01,706 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:01,782 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:46:02,426 - main - INFO - Transcription complete:  I don't know what he says
+2025-02-18 23:46:02,426 - main - INFO - Transcription:  I don't know what he says
+2025-02-18 23:46:02,427 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902562.427035 detected_keywords=[]
+2025-02-18 23:46:04,711 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:04,711 - main - INFO - Processing audio chunk
+2025-02-18 23:46:04,711 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:04,786 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:46:05,450 - main - INFO - Transcription complete:  Contest haga pichawali
+2025-02-18 23:46:05,451 - main - INFO - Transcription:  Contest haga pichawali
+2025-02-18 23:46:05,451 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902565.451143 detected_keywords=[]
+2025-02-18 23:46:07,701 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:07,701 - main - INFO - Processing audio chunk
+2025-02-18 23:46:07,701 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:07,786 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:46:16,648 - main - INFO - Transcription complete:  Adi Dev Jayaan Inha Pat Gadpeace G� His Behavi particles
+2025-02-18 23:46:16,649 - main - INFO - Transcription:  Adi Dev Jayaan Inha Pat Gadpeace G� His Behavi particles
+2025-02-18 23:46:16,649 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902576.649175 detected_keywords=[]
+2025-02-18 23:46:19,668 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:19,668 - main - INFO - Processing audio chunk
+2025-02-18 23:46:19,669 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:19,745 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (119070,)
+2025-02-18 23:46:27,109 - main - INFO - Transcription complete:  binaur
+2025-02-18 23:46:27,109 - main - INFO - Transcription:  binaur
+2025-02-18 23:46:27,109 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902587.10968 detected_keywords=[]
+2025-02-18 23:46:28,657 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:28,657 - main - INFO - Processing audio chunk
+2025-02-18 23:46:28,657 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:28,732 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (53802,)
+2025-02-18 23:46:29,390 - main - INFO - Transcription complete: 
+2025-02-18 23:46:29,391 - main - INFO - Transcription: 
+2025-02-18 23:46:29,391 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902589.391354 detected_keywords=[]
+2025-02-18 23:46:31,649 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:31,649 - main - INFO - Processing audio chunk
+2025-02-18 23:46:31,649 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:31,725 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:46:32,401 - main - INFO - Transcription complete:  Where did you have it?
+2025-02-18 23:46:32,401 - main - INFO - Transcription:  Where did you have it?
+2025-02-18 23:46:32,401 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902592.401887 detected_keywords=[]
+2025-02-18 23:46:34,647 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:34,647 - main - INFO - Processing audio chunk
+2025-02-18 23:46:34,647 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:34,737 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:46:35,367 - main - INFO - Transcription complete: 
+2025-02-18 23:46:35,367 - main - INFO - Transcription: 
+2025-02-18 23:46:35,367 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902595.367553 detected_keywords=[]
+2025-02-18 23:46:37,646 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:37,646 - main - INFO - Processing audio chunk
+2025-02-18 23:46:37,646 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:37,737 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:46:38,387 - main - INFO - Transcription complete: 
+2025-02-18 23:46:38,388 - main - INFO - Transcription: 
+2025-02-18 23:46:38,388 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902598.388258 detected_keywords=[]
+2025-02-18 23:46:40,630 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:40,630 - main - INFO - Processing audio chunk
+2025-02-18 23:46:40,630 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:40,765 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:46:41,492 - main - INFO - Transcription complete: 
+2025-02-18 23:46:41,493 - main - INFO - Transcription: 
+2025-02-18 23:46:41,493 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902601.493128 detected_keywords=[]
+2025-02-18 23:46:43,619 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:43,620 - main - INFO - Processing audio chunk
+2025-02-18 23:46:43,620 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:43,702 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (80262,)
+2025-02-18 23:46:44,348 - main - INFO - Transcription complete: 
+2025-02-18 23:46:44,348 - main - INFO - Transcription: 
+2025-02-18 23:46:44,348 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902604.348457 detected_keywords=[]
+2025-02-18 23:46:46,619 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:46,619 - main - INFO - Processing audio chunk
+2025-02-18 23:46:46,620 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:46,697 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:46:47,340 - main - INFO - Transcription complete: 
+2025-02-18 23:46:47,341 - main - INFO - Transcription: 
+2025-02-18 23:46:47,341 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902607.341216 detected_keywords=[]
+2025-02-18 23:46:49,631 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:49,631 - main - INFO - Processing audio chunk
+2025-02-18 23:46:49,631 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:49,715 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:46:50,351 - main - INFO - Transcription complete: 
+2025-02-18 23:46:50,351 - main - INFO - Transcription: 
+2025-02-18 23:46:50,351 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902610.351419 detected_keywords=[]
+2025-02-18 23:46:52,642 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:52,642 - main - INFO - Processing audio chunk
+2025-02-18 23:46:52,642 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:52,722 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:46:53,357 - main - INFO - Transcription complete: 
+2025-02-18 23:46:53,358 - main - INFO - Transcription: 
+2025-02-18 23:46:53,358 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902613.358119 detected_keywords=[]
+2025-02-18 23:46:55,604 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:55,605 - main - INFO - Processing audio chunk
+2025-02-18 23:46:55,605 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:55,687 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:46:56,394 - main - INFO - Transcription complete: 
+2025-02-18 23:46:56,394 - main - INFO - Transcription: 
+2025-02-18 23:46:56,394 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902616.394746 detected_keywords=[]
+2025-02-18 23:46:58,603 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:46:58,603 - main - INFO - Processing audio chunk
+2025-02-18 23:46:58,604 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:46:58,711 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82908,)
+2025-02-18 23:46:59,383 - main - INFO - Transcription complete: 
+2025-02-18 23:46:59,384 - main - INFO - Transcription: 
+2025-02-18 23:46:59,385 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902619.385153 detected_keywords=[]
+2025-02-18 23:47:01,586 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:01,587 - main - INFO - Processing audio chunk
+2025-02-18 23:47:01,587 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:01,710 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:47:02,408 - main - INFO - Transcription complete: 
+2025-02-18 23:47:02,408 - main - INFO - Transcription: 
+2025-02-18 23:47:02,408 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902622.408917 detected_keywords=[]
+2025-02-18 23:47:04,593 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:04,593 - main - INFO - Processing audio chunk
+2025-02-18 23:47:04,593 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:04,707 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (77616,)
+2025-02-18 23:47:05,405 - main - INFO - Transcription complete: 
+2025-02-18 23:47:05,405 - main - INFO - Transcription: 
+2025-02-18 23:47:05,405 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902625.405735 detected_keywords=[]
+2025-02-18 23:47:07,585 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:07,585 - main - INFO - Processing audio chunk
+2025-02-18 23:47:07,585 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:07,701 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:47:08,424 - main - INFO - Transcription complete: 
+2025-02-18 23:47:08,424 - main - INFO - Transcription: 
+2025-02-18 23:47:08,424 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902628.424873 detected_keywords=[]
+2025-02-18 23:47:10,582 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:10,582 - main - INFO - Processing audio chunk
+2025-02-18 23:47:10,583 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:10,659 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (76734,)
+2025-02-18 23:47:11,324 - main - INFO - Transcription complete: 
+2025-02-18 23:47:11,324 - main - INFO - Transcription: 
+2025-02-18 23:47:11,324 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902631.32466 detected_keywords=[]
+2025-02-18 23:47:13,567 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:13,567 - main - INFO - Processing audio chunk
+2025-02-18 23:47:13,567 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:13,649 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:47:14,307 - main - INFO - Transcription complete: 
+2025-02-18 23:47:14,308 - main - INFO - Transcription: 
+2025-02-18 23:47:14,308 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902634.308154 detected_keywords=[]
+2025-02-18 23:47:16,574 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:16,574 - main - INFO - Processing audio chunk
+2025-02-18 23:47:16,574 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:16,653 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:47:17,302 - main - INFO - Transcription complete: 
+2025-02-18 23:47:17,302 - main - INFO - Transcription: 
+2025-02-18 23:47:17,302 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902637.302474 detected_keywords=[]
+2025-02-18 23:47:19,520 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:19,520 - main - INFO - Processing audio chunk
+2025-02-18 23:47:19,520 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:19,603 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:47:20,233 - main - INFO - Transcription complete: 
+2025-02-18 23:47:20,233 - main - INFO - Transcription: 
+2025-02-18 23:47:20,233 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902640.233801 detected_keywords=[]
+2025-02-18 23:47:22,551 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:22,551 - main - INFO - Processing audio chunk
+2025-02-18 23:47:22,551 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:22,635 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (89082,)
+2025-02-18 23:47:23,275 - main - INFO - Transcription complete: 
+2025-02-18 23:47:23,275 - main - INFO - Transcription: 
+2025-02-18 23:47:23,276 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902643.275989 detected_keywords=[]
+2025-02-18 23:47:25,549 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:25,550 - main - INFO - Processing audio chunk
+2025-02-18 23:47:25,550 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:25,626 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:47:26,267 - main - INFO - Transcription complete: 
+2025-02-18 23:47:26,268 - main - INFO - Transcription: 
+2025-02-18 23:47:26,268 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902646.268202 detected_keywords=[]
+2025-02-18 23:47:28,537 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:28,537 - main - INFO - Processing audio chunk
+2025-02-18 23:47:28,541 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:28,672 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:47:29,470 - main - INFO - Transcription complete: 
+2025-02-18 23:47:29,471 - main - INFO - Transcription: 
+2025-02-18 23:47:29,471 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902649.471178 detected_keywords=[]
+2025-02-18 23:47:31,531 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:31,531 - main - INFO - Processing audio chunk
+2025-02-18 23:47:31,532 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:31,687 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (76734,)
+2025-02-18 23:47:32,453 - main - INFO - Transcription complete: 
+2025-02-18 23:47:32,453 - main - INFO - Transcription: 
+2025-02-18 23:47:32,453 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902652.453444 detected_keywords=[]
+2025-02-18 23:47:34,519 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:34,520 - main - INFO - Processing audio chunk
+2025-02-18 23:47:34,520 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:34,728 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (76734,)
+2025-02-18 23:47:35,487 - main - INFO - Transcription complete: 
+2025-02-18 23:47:35,487 - main - INFO - Transcription: 
+2025-02-18 23:47:35,487 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902655.487788 detected_keywords=[]
+2025-02-18 23:47:37,519 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:37,519 - main - INFO - Processing audio chunk
+2025-02-18 23:47:37,519 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:37,605 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:47:38,231 - main - INFO - Transcription complete: 
+2025-02-18 23:47:38,231 - main - INFO - Transcription: 
+2025-02-18 23:47:38,231 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902658.231906 detected_keywords=[]
+2025-02-18 23:47:40,512 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:40,512 - main - INFO - Processing audio chunk
+2025-02-18 23:47:40,513 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:40,620 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:47:41,316 - main - INFO - Transcription complete: 
+2025-02-18 23:47:41,316 - main - INFO - Transcription: 
+2025-02-18 23:47:41,316 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902661.3166 detected_keywords=[]
+2025-02-18 23:47:43,500 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:43,501 - main - INFO - Processing audio chunk
+2025-02-18 23:47:43,501 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:43,578 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:47:44,238 - main - INFO - Transcription complete: 
+2025-02-18 23:47:44,238 - main - INFO - Transcription: 
+2025-02-18 23:47:44,238 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902664.238432 detected_keywords=[]
+2025-02-18 23:47:46,494 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:46,494 - main - INFO - Processing audio chunk
+2025-02-18 23:47:46,495 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:46,572 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:47:47,265 - main - INFO - Transcription complete: 
+2025-02-18 23:47:47,265 - main - INFO - Transcription: 
+2025-02-18 23:47:47,265 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902667.265631 detected_keywords=[]
+2025-02-18 23:47:49,509 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:49,509 - main - INFO - Processing audio chunk
+2025-02-18 23:47:49,509 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:49,592 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:47:50,255 - main - INFO - Transcription complete: 
+2025-02-18 23:47:50,256 - main - INFO - Transcription: 
+2025-02-18 23:47:50,256 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902670.256243 detected_keywords=[]
+2025-02-18 23:47:52,486 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:52,486 - main - INFO - Processing audio chunk
+2025-02-18 23:47:52,486 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:52,598 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:47:53,319 - main - INFO - Transcription complete: 
+2025-02-18 23:47:53,319 - main - INFO - Transcription: 
+2025-02-18 23:47:53,319 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902673.319693 detected_keywords=[]
+2025-02-18 23:47:55,479 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:55,479 - main - INFO - Processing audio chunk
+2025-02-18 23:47:55,480 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:55,581 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:47:56,279 - main - INFO - Transcription complete: 
+2025-02-18 23:47:56,279 - main - INFO - Transcription: 
+2025-02-18 23:47:56,279 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902676.279478 detected_keywords=[]
+2025-02-18 23:47:58,478 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:47:58,478 - main - INFO - Processing audio chunk
+2025-02-18 23:47:58,479 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:47:58,588 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:47:59,296 - main - INFO - Transcription complete: 
+2025-02-18 23:47:59,296 - main - INFO - Transcription: 
+2025-02-18 23:47:59,296 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902679.296504 detected_keywords=[]
+2025-02-18 23:48:01,472 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:01,472 - main - INFO - Processing audio chunk
+2025-02-18 23:48:01,473 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:01,547 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82908,)
+2025-02-18 23:48:02,175 - main - INFO - Transcription complete: 
+2025-02-18 23:48:02,175 - main - INFO - Transcription: 
+2025-02-18 23:48:02,175 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902682.175566 detected_keywords=[]
+2025-02-18 23:48:04,461 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:04,461 - main - INFO - Processing audio chunk
+2025-02-18 23:48:04,461 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:04,536 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:48:05,171 - main - INFO - Transcription complete: 
+2025-02-18 23:48:05,172 - main - INFO - Transcription: 
+2025-02-18 23:48:05,172 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902685.172208 detected_keywords=[]
+2025-02-18 23:48:07,459 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:07,459 - main - INFO - Processing audio chunk
+2025-02-18 23:48:07,460 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:07,545 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:48:08,186 - main - INFO - Transcription complete: 
+2025-02-18 23:48:08,186 - main - INFO - Transcription: 
+2025-02-18 23:48:08,186 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902688.186755 detected_keywords=[]
+2025-02-18 23:48:10,440 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:10,440 - main - INFO - Processing audio chunk
+2025-02-18 23:48:10,441 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:10,547 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:48:11,213 - main - INFO - Transcription complete: 
+2025-02-18 23:48:11,213 - main - INFO - Transcription: 
+2025-02-18 23:48:11,213 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902691.213473 detected_keywords=[]
+2025-02-18 23:48:13,448 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:13,448 - main - INFO - Processing audio chunk
+2025-02-18 23:48:13,449 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:13,526 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:48:14,179 - main - INFO - Transcription complete: 
+2025-02-18 23:48:14,180 - main - INFO - Transcription: 
+2025-02-18 23:48:14,180 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902694.180052 detected_keywords=[]
+2025-02-18 23:48:16,434 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:16,434 - main - INFO - Processing audio chunk
+2025-02-18 23:48:16,435 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:16,511 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:48:17,173 - main - INFO - Transcription complete: 
+2025-02-18 23:48:17,173 - main - INFO - Transcription: 
+2025-02-18 23:48:17,173 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902697.17348 detected_keywords=[]
+2025-02-18 23:48:19,451 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:19,451 - main - INFO - Processing audio chunk
+2025-02-18 23:48:19,451 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:19,536 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:48:20,216 - main - INFO - Transcription complete: 
+2025-02-18 23:48:20,216 - main - INFO - Transcription: 
+2025-02-18 23:48:20,216 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902700.216353 detected_keywords=[]
+2025-02-18 23:48:22,432 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:22,432 - main - INFO - Processing audio chunk
+2025-02-18 23:48:22,432 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:22,522 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82908,)
+2025-02-18 23:48:23,177 - main - INFO - Transcription complete: 
+2025-02-18 23:48:23,177 - main - INFO - Transcription: 
+2025-02-18 23:48:23,177 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902703.177793 detected_keywords=[]
+2025-02-18 23:48:25,416 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:25,416 - main - INFO - Processing audio chunk
+2025-02-18 23:48:25,416 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:25,534 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:48:26,171 - main - INFO - Transcription complete: 
+2025-02-18 23:48:26,171 - main - INFO - Transcription: 
+2025-02-18 23:48:26,171 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902706.171869 detected_keywords=[]
+2025-02-18 23:48:28,419 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:28,420 - main - INFO - Processing audio chunk
+2025-02-18 23:48:28,422 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:28,500 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:48:29,196 - main - INFO - Transcription complete: 
+2025-02-18 23:48:29,196 - main - INFO - Transcription: 
+2025-02-18 23:48:29,196 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902709.196566 detected_keywords=[]
+2025-02-18 23:48:31,404 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:31,404 - main - INFO - Processing audio chunk
+2025-02-18 23:48:31,405 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:31,488 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82908,)
+2025-02-18 23:48:32,125 - main - INFO - Transcription complete: 
+2025-02-18 23:48:32,125 - main - INFO - Transcription: 
+2025-02-18 23:48:32,126 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902712.12604 detected_keywords=[]
+2025-02-18 23:48:34,392 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:34,392 - main - INFO - Processing audio chunk
+2025-02-18 23:48:34,393 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:34,506 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:48:35,198 - main - INFO - Transcription complete: 
+2025-02-18 23:48:35,199 - main - INFO - Transcription: 
+2025-02-18 23:48:35,199 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902715.199272 detected_keywords=[]
+2025-02-18 23:48:37,414 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:37,414 - main - INFO - Processing audio chunk
+2025-02-18 23:48:37,414 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:37,531 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82908,)
+2025-02-18 23:48:38,236 - main - INFO - Transcription complete: 
+2025-02-18 23:48:38,236 - main - INFO - Transcription: 
+2025-02-18 23:48:38,236 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902718.236853 detected_keywords=[]
+2025-02-18 23:48:40,392 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:40,392 - main - INFO - Processing audio chunk
+2025-02-18 23:48:40,393 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:40,470 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (80262,)
+2025-02-18 23:48:41,069 - main - INFO - Transcription complete: 
+2025-02-18 23:48:41,069 - main - INFO - Transcription: 
+2025-02-18 23:48:41,069 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902721.069542 detected_keywords=[]
+2025-02-18 23:48:43,394 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:43,394 - main - INFO - Processing audio chunk
+2025-02-18 23:48:43,395 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:43,479 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (87318,)
+2025-02-18 23:48:44,141 - main - INFO - Transcription complete: 
+2025-02-18 23:48:44,142 - main - INFO - Transcription: 
+2025-02-18 23:48:44,142 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902724.142074 detected_keywords=[]
+2025-02-18 23:48:46,401 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:46,402 - main - INFO - Processing audio chunk
+2025-02-18 23:48:46,402 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:46,486 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (80262,)
+2025-02-18 23:48:47,116 - main - INFO - Transcription complete: 
+2025-02-18 23:48:47,117 - main - INFO - Transcription: 
+2025-02-18 23:48:47,117 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902727.117051 detected_keywords=[]
+2025-02-18 23:48:49,395 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:49,395 - main - INFO - Processing audio chunk
+2025-02-18 23:48:49,395 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:49,486 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:48:50,127 - main - INFO - Transcription complete: 
+2025-02-18 23:48:50,127 - main - INFO - Transcription: 
+2025-02-18 23:48:50,127 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902730.127637 detected_keywords=[]
+2025-02-18 23:48:52,375 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:52,375 - main - INFO - Processing audio chunk
+2025-02-18 23:48:52,375 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:52,449 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:48:53,099 - main - INFO - Transcription complete: 
+2025-02-18 23:48:53,099 - main - INFO - Transcription: 
+2025-02-18 23:48:53,099 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902733.099492 detected_keywords=[]
+2025-02-18 23:48:55,363 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:55,363 - main - INFO - Processing audio chunk
+2025-02-18 23:48:55,363 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:55,492 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:48:56,225 - main - INFO - Transcription complete: 
+2025-02-18 23:48:56,225 - main - INFO - Transcription: 
+2025-02-18 23:48:56,225 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902736.225422 detected_keywords=[]
+2025-02-18 23:48:58,354 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:48:58,354 - main - INFO - Processing audio chunk
+2025-02-18 23:48:58,355 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:48:58,436 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (79380,)
+2025-02-18 23:48:59,117 - main - INFO - Transcription complete: 
+2025-02-18 23:48:59,117 - main - INFO - Transcription: 
+2025-02-18 23:48:59,118 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902739.117971 detected_keywords=[]
+2025-02-18 23:49:01,362 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:01,362 - main - INFO - Processing audio chunk
+2025-02-18 23:49:01,362 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:01,489 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:49:02,133 - main - INFO - Transcription complete: 
+2025-02-18 23:49:02,133 - main - INFO - Transcription: 
+2025-02-18 23:49:02,133 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902742.133779 detected_keywords=[]
+2025-02-18 23:49:04,344 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:04,344 - main - INFO - Processing audio chunk
+2025-02-18 23:49:04,344 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:04,427 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:49:05,121 - main - INFO - Transcription complete: 
+2025-02-18 23:49:05,121 - main - INFO - Transcription: 
+2025-02-18 23:49:05,121 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902745.121534 detected_keywords=[]
+2025-02-18 23:49:07,336 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:07,336 - main - INFO - Processing audio chunk
+2025-02-18 23:49:07,337 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:07,505 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:49:08,468 - main - INFO - Transcription complete: 
+2025-02-18 23:49:08,470 - main - INFO - Transcription: 
+2025-02-18 23:49:08,470 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902748.47026 detected_keywords=[]
+2025-02-18 23:49:10,339 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:10,340 - main - INFO - Processing audio chunk
+2025-02-18 23:49:10,340 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:10,607 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (67914,)
+2025-02-18 23:49:11,475 - main - INFO - Transcription complete: 
+2025-02-18 23:49:11,476 - main - INFO - Transcription: 
+2025-02-18 23:49:11,476 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902751.476148 detected_keywords=[]
+2025-02-18 23:49:13,323 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:13,323 - main - INFO - Processing audio chunk
+2025-02-18 23:49:13,324 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:13,458 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (67032,)
+2025-02-18 23:49:14,190 - main - INFO - Transcription complete: 
+2025-02-18 23:49:14,191 - main - INFO - Transcription: 
+2025-02-18 23:49:14,191 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902754.191828 detected_keywords=[]
+2025-02-18 23:49:16,324 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:16,325 - main - INFO - Processing audio chunk
+2025-02-18 23:49:16,325 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:16,488 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (79380,)
+2025-02-18 23:49:17,195 - main - INFO - Transcription complete: 
+2025-02-18 23:49:17,196 - main - INFO - Transcription: 
+2025-02-18 23:49:17,196 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902757.196173 detected_keywords=[]
+2025-02-18 23:49:19,323 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:19,323 - main - INFO - Processing audio chunk
+2025-02-18 23:49:19,323 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:19,400 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (79380,)
+2025-02-18 23:49:20,042 - main - INFO - Transcription complete: 
+2025-02-18 23:49:20,042 - main - INFO - Transcription: 
+2025-02-18 23:49:20,042 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902760.042824 detected_keywords=[]
+2025-02-18 23:49:22,330 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:22,330 - main - INFO - Processing audio chunk
+2025-02-18 23:49:22,330 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:22,404 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:49:23,060 - main - INFO - Transcription complete: 
+2025-02-18 23:49:23,060 - main - INFO - Transcription: 
+2025-02-18 23:49:23,061 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902763.061039 detected_keywords=[]
+2025-02-18 23:49:25,320 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:25,320 - main - INFO - Processing audio chunk
+2025-02-18 23:49:25,321 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:25,396 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (86436,)
+2025-02-18 23:49:26,048 - main - INFO - Transcription complete: 
+2025-02-18 23:49:26,048 - main - INFO - Transcription: 
+2025-02-18 23:49:26,048 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902766.048852 detected_keywords=[]
+2025-02-18 23:49:28,281 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:28,281 - main - INFO - Processing audio chunk
+2025-02-18 23:49:28,282 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:28,364 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:49:29,029 - main - INFO - Transcription complete: 
+2025-02-18 23:49:29,030 - main - INFO - Transcription: 
+2025-02-18 23:49:29,030 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902769.030192 detected_keywords=[]
+2025-02-18 23:49:31,310 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:31,311 - main - INFO - Processing audio chunk
+2025-02-18 23:49:31,311 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:31,388 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:49:32,045 - main - INFO - Transcription complete: 
+2025-02-18 23:49:32,045 - main - INFO - Transcription: 
+2025-02-18 23:49:32,045 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902772.045761 detected_keywords=[]
+2025-02-18 23:49:34,293 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:34,293 - main - INFO - Processing audio chunk
+2025-02-18 23:49:34,294 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:34,371 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:49:35,054 - main - INFO - Transcription complete: 
+2025-02-18 23:49:35,054 - main - INFO - Transcription: 
+2025-02-18 23:49:35,054 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902775.054559 detected_keywords=[]
+2025-02-18 23:49:37,298 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:37,298 - main - INFO - Processing audio chunk
+2025-02-18 23:49:37,299 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:37,376 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:49:38,058 - main - INFO - Transcription complete: 
+2025-02-18 23:49:38,059 - main - INFO - Transcription: 
+2025-02-18 23:49:38,060 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902778.059907 detected_keywords=[]
+2025-02-18 23:49:40,290 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:40,291 - main - INFO - Processing audio chunk
+2025-02-18 23:49:40,291 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:40,373 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:49:41,085 - main - INFO - Transcription complete: 
+2025-02-18 23:49:41,085 - main - INFO - Transcription: 
+2025-02-18 23:49:41,085 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902781.08539 detected_keywords=[]
+2025-02-18 23:49:43,278 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:43,278 - main - INFO - Processing audio chunk
+2025-02-18 23:49:43,279 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:43,410 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:49:44,102 - main - INFO - Transcription complete: 
+2025-02-18 23:49:44,102 - main - INFO - Transcription: 
+2025-02-18 23:49:44,102 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902784.102807 detected_keywords=[]
+2025-02-18 23:49:46,264 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:46,264 - main - INFO - Processing audio chunk
+2025-02-18 23:49:46,264 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:46,354 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:49:47,006 - main - INFO - Transcription complete: 
+2025-02-18 23:49:47,006 - main - INFO - Transcription: 
+2025-02-18 23:49:47,006 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902787.006805 detected_keywords=[]
+2025-02-18 23:49:49,258 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:49,258 - main - INFO - Processing audio chunk
+2025-02-18 23:49:49,259 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:49,342 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:49:49,995 - main - INFO - Transcription complete: 
+2025-02-18 23:49:49,995 - main - INFO - Transcription: 
+2025-02-18 23:49:49,995 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902789.995395 detected_keywords=[]
+2025-02-18 23:49:52,257 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:52,257 - main - INFO - Processing audio chunk
+2025-02-18 23:49:52,258 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:52,334 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:49:52,988 - main - INFO - Transcription complete: 
+2025-02-18 23:49:52,989 - main - INFO - Transcription: 
+2025-02-18 23:49:52,989 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902792.989279 detected_keywords=[]
+2025-02-18 23:49:55,245 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:55,245 - main - INFO - Processing audio chunk
+2025-02-18 23:49:55,245 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:55,323 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:49:55,957 - main - INFO - Transcription complete: 
+2025-02-18 23:49:55,957 - main - INFO - Transcription: 
+2025-02-18 23:49:55,957 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902795.957888 detected_keywords=[]
+2025-02-18 23:49:58,253 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:49:58,253 - main - INFO - Processing audio chunk
+2025-02-18 23:49:58,253 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:49:58,328 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (87318,)
+2025-02-18 23:49:58,963 - main - INFO - Transcription complete: 
+2025-02-18 23:49:58,963 - main - INFO - Transcription: 
+2025-02-18 23:49:58,963 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902798.963654 detected_keywords=[]
+2025-02-18 23:50:01,226 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:01,226 - main - INFO - Processing audio chunk
+2025-02-18 23:50:01,227 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:01,304 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:50:01,958 - main - INFO - Transcription complete: 
+2025-02-18 23:50:01,958 - main - INFO - Transcription: 
+2025-02-18 23:50:01,958 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902801.958485 detected_keywords=[]
+2025-02-18 23:50:04,238 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:04,238 - main - INFO - Processing audio chunk
+2025-02-18 23:50:04,238 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:04,318 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (85554,)
+2025-02-18 23:50:04,994 - main - INFO - Transcription complete: 
+2025-02-18 23:50:04,994 - main - INFO - Transcription: 
+2025-02-18 23:50:04,994 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902804.99464 detected_keywords=[]
+2025-02-18 23:50:07,225 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:07,225 - main - INFO - Processing audio chunk
+2025-02-18 23:50:07,226 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:07,336 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:50:08,035 - main - INFO - Transcription complete: 
+2025-02-18 23:50:08,035 - main - INFO - Transcription: 
+2025-02-18 23:50:08,035 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902808.035568 detected_keywords=[]
+2025-02-18 23:50:10,230 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:10,230 - main - INFO - Processing audio chunk
+2025-02-18 23:50:10,230 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:10,358 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (82026,)
+2025-02-18 23:50:11,146 - main - INFO - Transcription complete: 
+2025-02-18 23:50:11,147 - main - INFO - Transcription: 
+2025-02-18 23:50:11,147 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902811.147268 detected_keywords=[]
+2025-02-18 23:50:13,223 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:13,223 - main - INFO - Processing audio chunk
+2025-02-18 23:50:13,224 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:13,382 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (76734,)
+2025-02-18 23:50:14,045 - main - INFO - Transcription complete: 
+2025-02-18 23:50:14,045 - main - INFO - Transcription: 
+2025-02-18 23:50:14,045 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902814.045668 detected_keywords=[]
+2025-02-18 23:50:16,224 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:16,224 - main - INFO - Processing audio chunk
+2025-02-18 23:50:16,225 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:16,348 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:50:17,049 - main - INFO - Transcription complete: 
+2025-02-18 23:50:17,049 - main - INFO - Transcription: 
+2025-02-18 23:50:17,049 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902817.049456 detected_keywords=[]
+2025-02-18 23:50:19,207 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:19,207 - main - INFO - Processing audio chunk
+2025-02-18 23:50:19,208 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:19,359 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:50:20,099 - main - INFO - Transcription complete: 
+2025-02-18 23:50:20,100 - main - INFO - Transcription: 
+2025-02-18 23:50:20,100 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902820.10021 detected_keywords=[]
+2025-02-18 23:50:22,225 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:22,226 - main - INFO - Processing audio chunk
+2025-02-18 23:50:22,227 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:22,384 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:50:23,299 - main - INFO - Transcription complete: 
+2025-02-18 23:50:23,299 - main - INFO - Transcription: 
+2025-02-18 23:50:23,299 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902823.299469 detected_keywords=[]
+2025-02-18 23:50:25,195 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:25,195 - main - INFO - Processing audio chunk
+2025-02-18 23:50:25,195 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:25,379 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (69678,)
+2025-02-18 23:50:26,191 - main - INFO - Transcription complete: 
+2025-02-18 23:50:26,192 - main - INFO - Transcription: 
+2025-02-18 23:50:26,192 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902826.192067 detected_keywords=[]
+2025-02-18 23:50:28,206 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:28,206 - main - INFO - Processing audio chunk
+2025-02-18 23:50:28,207 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:28,378 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74088,)
+2025-02-18 23:50:29,232 - main - INFO - Transcription complete: 
+2025-02-18 23:50:29,232 - main - INFO - Transcription: 
+2025-02-18 23:50:29,232 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902829.232677 detected_keywords=[]
+2025-02-18 23:50:31,194 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:31,195 - main - INFO - Processing audio chunk
+2025-02-18 23:50:31,195 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:31,315 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (72324,)
+2025-02-18 23:50:32,054 - main - INFO - Transcription complete: 
+2025-02-18 23:50:32,056 - main - INFO - Transcription: 
+2025-02-18 23:50:32,057 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902832.057321 detected_keywords=[]
+2025-02-18 23:50:34,176 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:34,176 - main - INFO - Processing audio chunk
+2025-02-18 23:50:34,177 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:34,316 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (79380,)
+2025-02-18 23:50:35,041 - main - INFO - Transcription complete: 
+2025-02-18 23:50:35,041 - main - INFO - Transcription: 
+2025-02-18 23:50:35,042 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902835.042012 detected_keywords=[]
+2025-02-18 23:50:37,162 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:37,162 - main - INFO - Processing audio chunk
+2025-02-18 23:50:37,162 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:37,272 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (78498,)
+2025-02-18 23:50:38,005 - main - INFO - Transcription complete: 
+2025-02-18 23:50:38,005 - main - INFO - Transcription: 
+2025-02-18 23:50:38,006 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902838.005835 detected_keywords=[]
+2025-02-18 23:50:40,174 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:40,174 - main - INFO - Processing audio chunk
+2025-02-18 23:50:40,175 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:40,309 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:50:41,053 - main - INFO - Transcription complete: 
+2025-02-18 23:50:41,053 - main - INFO - Transcription: 
+2025-02-18 23:50:41,053 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902841.053571 detected_keywords=[]
+2025-02-18 23:50:43,158 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:43,158 - main - INFO - Processing audio chunk
+2025-02-18 23:50:43,158 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:43,236 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (78498,)
+2025-02-18 23:50:43,914 - main - INFO - Transcription complete: 
+2025-02-18 23:50:43,914 - main - INFO - Transcription: 
+2025-02-18 23:50:43,914 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902843.914564 detected_keywords=[]
+2025-02-18 23:50:46,157 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:46,157 - main - INFO - Processing audio chunk
+2025-02-18 23:50:46,157 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:46,279 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:50:46,980 - main - INFO - Transcription complete: 
+2025-02-18 23:50:46,980 - main - INFO - Transcription: 
+2025-02-18 23:50:46,980 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902846.980682 detected_keywords=[]
+2025-02-18 23:50:49,144 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:49,144 - main - INFO - Processing audio chunk
+2025-02-18 23:50:49,144 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:49,295 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:50:50,105 - main - INFO - Transcription complete: 
+2025-02-18 23:50:50,106 - main - INFO - Transcription: 
+2025-02-18 23:50:50,106 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902850.106606 detected_keywords=[]
+2025-02-18 23:50:52,136 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:52,136 - main - INFO - Processing audio chunk
+2025-02-18 23:50:52,137 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:52,246 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:50:52,970 - main - INFO - Transcription complete: 
+2025-02-18 23:50:52,970 - main - INFO - Transcription: 
+2025-02-18 23:50:52,970 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902852.970559 detected_keywords=[]
+2025-02-18 23:50:55,128 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:55,128 - main - INFO - Processing audio chunk
+2025-02-18 23:50:55,128 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:55,293 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (80262,)
+2025-02-18 23:50:56,028 - main - INFO - Transcription complete: 
+2025-02-18 23:50:56,029 - main - INFO - Transcription: 
+2025-02-18 23:50:56,029 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902856.029048 detected_keywords=[]
+2025-02-18 23:50:58,123 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:50:58,123 - main - INFO - Processing audio chunk
+2025-02-18 23:50:58,123 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:50:58,257 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (77616,)
+2025-02-18 23:50:58,947 - main - INFO - Transcription complete: 
+2025-02-18 23:50:58,947 - main - INFO - Transcription: 
+2025-02-18 23:50:58,947 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902858.947654 detected_keywords=[]
+2025-02-18 23:51:01,126 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:01,126 - main - INFO - Processing audio chunk
+2025-02-18 23:51:01,126 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:01,235 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:01,946 - main - INFO - Transcription complete: 
+2025-02-18 23:51:01,947 - main - INFO - Transcription: 
+2025-02-18 23:51:01,947 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902861.947454 detected_keywords=[]
+2025-02-18 23:51:04,116 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:04,117 - main - INFO - Processing audio chunk
+2025-02-18 23:51:04,118 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:04,239 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:05,031 - main - INFO - Transcription complete: 
+2025-02-18 23:51:05,031 - main - INFO - Transcription: 
+2025-02-18 23:51:05,031 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902865.03149 detected_keywords=[]
+2025-02-18 23:51:07,108 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:07,108 - main - INFO - Processing audio chunk
+2025-02-18 23:51:07,109 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:07,277 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (77616,)
+2025-02-18 23:51:08,142 - main - INFO - Transcription complete: 
+2025-02-18 23:51:08,143 - main - INFO - Transcription: 
+2025-02-18 23:51:08,143 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902868.143067 detected_keywords=[]
+2025-02-18 23:51:10,107 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:10,107 - main - INFO - Processing audio chunk
+2025-02-18 23:51:10,108 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:10,240 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (72324,)
+2025-02-18 23:51:10,960 - main - INFO - Transcription complete: 
+2025-02-18 23:51:10,961 - main - INFO - Transcription: 
+2025-02-18 23:51:10,961 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902870.961052 detected_keywords=[]
+2025-02-18 23:51:13,094 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:13,094 - main - INFO - Processing audio chunk
+2025-02-18 23:51:13,094 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:13,226 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (80262,)
+2025-02-18 23:51:14,042 - main - INFO - Transcription complete: 
+2025-02-18 23:51:14,042 - main - INFO - Transcription: 
+2025-02-18 23:51:14,042 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902874.042876 detected_keywords=[]
+2025-02-18 23:51:16,091 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:16,091 - main - INFO - Processing audio chunk
+2025-02-18 23:51:16,092 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:16,256 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (75852,)
+2025-02-18 23:51:17,050 - main - INFO - Transcription complete: 
+2025-02-18 23:51:17,051 - main - INFO - Transcription: 
+2025-02-18 23:51:17,051 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902877.05153 detected_keywords=[]
+2025-02-18 23:51:19,083 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:19,083 - main - INFO - Processing audio chunk
+2025-02-18 23:51:19,084 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:19,241 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:51:20,009 - main - INFO - Transcription complete: 
+2025-02-18 23:51:20,009 - main - INFO - Transcription: 
+2025-02-18 23:51:20,009 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902880.009831 detected_keywords=[]
+2025-02-18 23:51:22,085 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:22,085 - main - INFO - Processing audio chunk
+2025-02-18 23:51:22,086 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:22,258 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (77616,)
+2025-02-18 23:51:23,026 - main - INFO - Transcription complete: 
+2025-02-18 23:51:23,027 - main - INFO - Transcription: 
+2025-02-18 23:51:23,027 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902883.02708 detected_keywords=[]
+2025-02-18 23:51:25,071 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:25,072 - main - INFO - Processing audio chunk
+2025-02-18 23:51:25,072 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:25,240 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (75852,)
+2025-02-18 23:51:26,056 - main - INFO - Transcription complete: 
+2025-02-18 23:51:26,057 - main - INFO - Transcription: 
+2025-02-18 23:51:26,057 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902886.057235 detected_keywords=[]
+2025-02-18 23:51:28,056 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:28,056 - main - INFO - Processing audio chunk
+2025-02-18 23:51:28,056 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:28,189 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74088,)
+2025-02-18 23:51:28,893 - main - INFO - Transcription complete: 
+2025-02-18 23:51:28,893 - main - INFO - Transcription: 
+2025-02-18 23:51:28,893 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902888.893952 detected_keywords=[]
+2025-02-18 23:51:31,058 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:31,058 - main - INFO - Processing audio chunk
+2025-02-18 23:51:31,058 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:31,272 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:32,124 - main - INFO - Transcription complete: 
+2025-02-18 23:51:32,125 - main - INFO - Transcription: 
+2025-02-18 23:51:32,125 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902892.125444 detected_keywords=[]
+2025-02-18 23:51:34,055 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:34,055 - main - INFO - Processing audio chunk
+2025-02-18 23:51:34,055 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:34,241 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (69678,)
+2025-02-18 23:51:35,033 - main - INFO - Transcription complete: 
+2025-02-18 23:51:35,034 - main - INFO - Transcription: 
+2025-02-18 23:51:35,034 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902895.034442 detected_keywords=[]
+2025-02-18 23:51:37,038 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:37,038 - main - INFO - Processing audio chunk
+2025-02-18 23:51:37,039 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:37,201 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:51:37,935 - main - INFO - Transcription complete: 
+2025-02-18 23:51:37,935 - main - INFO - Transcription: 
+2025-02-18 23:51:37,935 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902897.935903 detected_keywords=[]
+2025-02-18 23:51:40,054 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:40,054 - main - INFO - Processing audio chunk
+2025-02-18 23:51:40,055 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:40,147 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (79380,)
+2025-02-18 23:51:40,855 - main - INFO - Transcription complete: 
+2025-02-18 23:51:40,855 - main - INFO - Transcription: 
+2025-02-18 23:51:40,855 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902900.855308 detected_keywords=[]
+2025-02-18 23:51:43,031 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:43,031 - main - INFO - Processing audio chunk
+2025-02-18 23:51:43,032 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:43,124 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:43,873 - main - INFO - Transcription complete: 
+2025-02-18 23:51:43,874 - main - INFO - Transcription: 
+2025-02-18 23:51:43,874 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902903.874232 detected_keywords=[]
+2025-02-18 23:51:46,032 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:46,033 - main - INFO - Processing audio chunk
+2025-02-18 23:51:46,033 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:46,172 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:46,865 - main - INFO - Transcription complete: 
+2025-02-18 23:51:46,865 - main - INFO - Transcription: 
+2025-02-18 23:51:46,866 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902906.865985 detected_keywords=[]
+2025-02-18 23:51:49,029 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:49,029 - main - INFO - Processing audio chunk
+2025-02-18 23:51:49,030 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:49,146 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (81144,)
+2025-02-18 23:51:49,762 - main - INFO - Transcription complete: 
+2025-02-18 23:51:49,762 - main - INFO - Transcription: 
+2025-02-18 23:51:49,762 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902909.76256 detected_keywords=[]
+2025-02-18 23:51:52,017 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:52,017 - main - INFO - Processing audio chunk
+2025-02-18 23:51:52,018 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:52,145 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (84672,)
+2025-02-18 23:51:52,902 - main - INFO - Transcription complete: 
+2025-02-18 23:51:52,903 - main - INFO - Transcription: 
+2025-02-18 23:51:52,903 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902912.903139 detected_keywords=[]
+2025-02-18 23:51:55,023 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:55,023 - main - INFO - Processing audio chunk
+2025-02-18 23:51:55,023 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:55,184 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (78498,)
+2025-02-18 23:51:55,948 - main - INFO - Transcription complete: 
+2025-02-18 23:51:55,948 - main - INFO - Transcription: 
+2025-02-18 23:51:55,948 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902915.948824 detected_keywords=[]
+2025-02-18 23:51:58,013 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:51:58,013 - main - INFO - Processing audio chunk
+2025-02-18 23:51:58,014 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:51:58,101 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (75852,)
+2025-02-18 23:51:58,758 - main - INFO - Transcription complete: 
+2025-02-18 23:51:58,758 - main - INFO - Transcription: 
+2025-02-18 23:51:58,758 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902918.758496 detected_keywords=[]
+2025-02-18 23:52:00,998 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:52:00,998 - main - INFO - Processing audio chunk
+2025-02-18 23:52:00,998 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:52:01,227 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:52:01,989 - main - INFO - Transcription complete: 
+2025-02-18 23:52:01,990 - main - INFO - Transcription: 
+2025-02-18 23:52:01,991 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902921.990926 detected_keywords=[]
+2025-02-18 23:52:03,985 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:52:03,985 - main - INFO - Processing audio chunk
+2025-02-18 23:52:03,985 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:52:04,064 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (74970,)
+2025-02-18 23:52:04,758 - main - INFO - Transcription complete: 
+2025-02-18 23:52:04,759 - main - INFO - Transcription: 
+2025-02-18 23:52:04,759 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902924.759264 detected_keywords=[]
+2025-02-18 23:52:06,997 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:52:06,997 - main - INFO - Processing audio chunk
+2025-02-18 23:52:06,998 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:52:07,083 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (83790,)
+2025-02-18 23:52:07,751 - main - INFO - Transcription complete: 
+2025-02-18 23:52:07,751 - main - INFO - Transcription: 
+2025-02-18 23:52:07,751 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739902927.751796 detected_keywords=[]

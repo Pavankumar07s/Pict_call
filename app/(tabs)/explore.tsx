@@ -1,109 +1,236 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, Platform, Linking, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+import Animated, { FadeInUp, FadeInRight } from 'react-native-reanimated';
+import { BlurView } from 'expo-blur';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function TabTwoScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+// Types
+interface Collaborator {
+  name: string;
+  role: string;
+  college: string;
+  year: string;
+  github: string;
+  linkedin: string;
+  image: string;
+  contribution: string;
+}
+
+interface SocialButtonProps {
+  icon: keyof typeof FontAwesome.glyphMap;
+  color: string;
+  url: string;
+}
+const collaborators: Collaborator[] = [
+  {
+    name: "Pavan Kumar",
+    role: "Lead Developer",
+    college: "PICT, Pune",
+    year: "2024",
+    github: "pavankumar0077",
+    linkedin: "pavan-kumar-224430241",
+    image: "https://github.com/pavankumar0077.png",
+    contribution: "Backend Development & ML Integration"
+  },
+  // Add other team members here
+];
+
+// Reusable Components
+const SocialButton = ({ icon, color, url }: SocialButtonProps) => (
+  <TouchableOpacity 
+    onPress={() => Linking.openURL(url)}
+    style={styles.socialButton}
+  >
+    <BlurView intensity={80} style={styles.blurContainer}>
+      <FontAwesome name={icon} size={24} color={color} />
+    </BlurView>
+  </TouchableOpacity>
+);
+
+const HeaderSection = () => (
+  <Animated.View 
+    entering={FadeInUp.duration(800)}
+    style={styles.headerContainer}
+  >
+    <ThemedText type="title" style={styles.pageTitle}>Our Team</ThemedText>
+    <ThemedText style={styles.subtitle}>
+      Meet the amazing people behind this project
+    </ThemedText>
+  </Animated.View>
+);
+
+const StatBadge = ({ label, value }: { label: string; value: string }) => (
+  <ThemedView style={styles.statBadge}>
+    <ThemedText style={styles.statLabel}>{label}</ThemedText>
+    <ThemedText type="defaultSemiBold" style={styles.statValue}>{value}</ThemedText>
+  </ThemedView>
+);
+
+const CollaboratorCard = ({ collaborator, index }: { collaborator: Collaborator; index: number }) => (
+  <Animated.View 
+    entering={FadeInRight.delay(index * 200).duration(800)}
+    style={styles.cardWrapper}
+  >
+    <BlurView intensity={30} style={styles.card}>
+      <Image 
+        source={{ uri: collaborator.image }} 
+        style={styles.avatar}
+      />
+      <ThemedView style={styles.cardContent}>
+        <ThemedText type="title" style={styles.name}>{collaborator.name}</ThemedText>
+        <ThemedView style={styles.roleContainer}>
+          <ThemedText type="defaultSemiBold" style={styles.role}>{collaborator.role}</ThemedText>
+        </ThemedView>
+        
+        <ThemedView style={styles.statsRow}>
+          <StatBadge label="College" value={collaborator.college} />
+          <StatBadge label="Year" value={collaborator.year} />
+        </ThemedView>
+
+        <ThemedText style={styles.contribution}>{collaborator.contribution}</ThemedText>
+        
+        <ThemedView style={styles.socialLinks}>
+          <SocialButton 
+            icon="github" 
+            color="#333" 
+            url={`https://github.com/${collaborator.github}`}
+          />
+          <SocialButton 
+            icon="linkedin-square" 
+            color="#0077b5" 
+            url={`https://linkedin.com/in/${collaborator.linkedin}`}
+          />
+        </ThemedView>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    </BlurView>
+  </Animated.View>
+);
+
+export default function CollaboratorsScreen() {
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView 
+        style={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        <HeaderSection />
+        <ThemedView style={styles.cardsContainer}>
+          {collaborators.map((collaborator, index) => (
+            <CollaboratorCard 
+              key={index} 
+              collaborator={collaborator} 
+              index={index} 
+            />
+          ))}
+        </ThemedView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
+const { width } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
+  safeArea: {
+    flex: 1,
   },
-  titleContainer: {
+  container: {
+    flex: 1,
+  },
+  headerContainer: {
+    padding: 24,
+    paddingBottom: 16,
+  },
+  pageTitle: {
+    fontSize: 36,
+    textAlign: 'center',
+    marginBottom: 8,
+    fontWeight: '800',
+  },
+  subtitle: {
+    textAlign: 'center',
+    marginBottom: 24,
+    opacity: 0.7,
+    fontSize: 16,
+  },
+  cardsContainer: {
+    padding: 16,
+    gap: 20,
+  },
+  cardWrapper: {
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  card: {
+    padding: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+    overflow: 'hidden',
+  },
+  blurContainer: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    padding: 10,
+  },
+  avatar: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    backgroundColor: '#eee',
+  },
+  cardContent: {
+    flex: 1,
+    gap: 8,
+  },
+  name: {
+    fontSize: 22,
+    fontWeight: '700',
+  },
+  roleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  role: {
+    color: '#1a73e8',
+    fontSize: 16,
+  },
+  statsRow: {
     flexDirection: 'row',
     gap: 8,
+    flexWrap: 'wrap',
+  },
+  statBadge: {
+    backgroundColor: '#ffffff15',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  statLabel: {
+    fontSize: 12,
+    opacity: 0.6,
+  },
+  statValue: {
+    fontSize: 14,
+  },
+  contribution: {
+    fontSize: 14,
+    opacity: 0.8,
+    lineHeight: 20,
+  },
+  socialLinks: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 4,
+  },
+  socialButton: {
+    borderRadius: 12,
+    overflow: 'hidden',
   },
 });
