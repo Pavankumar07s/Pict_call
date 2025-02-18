@@ -28,12 +28,42 @@ const collaborators: Collaborator[] = [
   {
     name: "Pavan Kumar",
     role: "Lead Developer",
-    college: "PICT, Pune",
-    year: "2024",
-    github: "pavankumar0077",
-    linkedin: "pavan-kumar-224430241",
-    image: "https://github.com/pavankumar0077.png",
-    contribution: "Backend Development & ML Integration"
+    college: "AIT, Pune",
+    year: "2027",
+    github: "pavankumar07s",
+    linkedin: "pavankumr",
+    image: "https://github.com/pavankumar07s.png",
+    contribution: "React native"
+  },
+  {
+    name: "Pavan Kumar",
+    role: "Lead Developer",
+    college: "AIT, Pune",
+    year: "2027",
+    github: "pavankumar07s",
+    linkedin: "pavankumr",
+    image: "https://github.com/pavankumar07s.png",
+    contribution: "React native"
+  },
+  {
+    name: "Pavan Kumar",
+    role: "Lead Developer",
+    college: "AIT, Pune",
+    year: "2027",
+    github: "pavankumar07s",
+    linkedin: "pavankumr",
+    image: "https://github.com/pavankumar07s.png",
+    contribution: "React native"
+  },
+  {
+    name: "Pavan Kumar",
+    role: "Lead Developer",
+    college: "AIT, Pune",
+    year: "2027",
+    github: "pavankumar07s",
+    linkedin: "pavankumr",
+    image: "https://github.com/pavankumar07s.png",
+    contribution: "React native"
   },
   // Add other team members here
 ];
@@ -185,15 +215,18 @@ const styles = StyleSheet.create({
   cardContent: {
     flex: 1,
     gap: 8,
+    padding:4,
   },
   name: {
     fontSize: 22,
     fontWeight: '700',
+    padding: 4,
   },
   roleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+    padding: 4,
   },
   role: {
     color: '#1a73e8',
@@ -203,6 +236,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     flexWrap: 'wrap',
+    padding: 4,
   },
   statBadge: {
     backgroundColor: '#ffffff15',
@@ -211,6 +245,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     flexDirection: 'column',
     alignItems: 'center',
+    padding: 4,
   },
   statLabel: {
     fontSize: 12,
@@ -232,5 +267,6 @@ const styles = StyleSheet.create({
   socialButton: {
     borderRadius: 12,
     overflow: 'hidden',
+    padding: 4,
   },
 });
