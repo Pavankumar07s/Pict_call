@@ -1,16 +1,27 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Animated } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
 import { AlertType } from '@/types';
 
+const PulsingDot = ({ pulseAnim }: { pulseAnim: Animated.Value }) => (
+  <Animated.View
+    style={[
+      styles.dot,
+      {
+        transform: [{ scale: pulseAnim }],
+      },
+    ]}
+  />
+);
+
 interface Props {
   isActive: boolean;
+  alerts: string[];
 }
 
-export function LiveAnalysis({ isActive }: Props) {
-  const [alerts, setAlerts] = useState<AlertType[]>([]);
+export function LiveAnalysis({ isActive, alerts }: Props) {
   const [pulseAnim] = useState(new Animated.Value(1));
 
   useEffect(() => {
@@ -34,23 +45,23 @@ export function LiveAnalysis({ isActive }: Props) {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.indicator, { transform: [{ scale: pulseAnim }] }]}>
-        <MaterialIcons name="radio" size={24} color={Colors.primary} />
-        <ThemedText>Live Analysis Active</ThemedText>
-      </Animated.View>
-
-      <View style={styles.alertsContainer}>
-        {alerts.map((alert, index) => (
-          <View key={index} style={[styles.alert, styles[alert.type]]}>
-            <MaterialIcons 
-              name={alert.type === 'danger' ? 'warning' : 'info'} 
-              size={20} 
-              color="white" 
-            />
-            <ThemedText style={styles.alertText}>{alert.message}</ThemedText>
-          </View>
-        ))}
+      <View style={styles.indicator}>
+        <PulsingDot pulseAnim={pulseAnim} />
+        <ThemedText style={styles.alertText}>
+          Live Analysis Active
+        </ThemedText>
       </View>
+
+      {alerts.length > 0 && (
+        <View style={styles.alertsContainer}>
+          {alerts.map((alert, index) => (
+            <View key={index} style={styles.alertItem}>
+              <MaterialIcons name="warning" size={20} color={Colors.warning} />
+              <ThemedText style={styles.alertText}>{alert}</ThemedText>
+            </View>
+          ))}
+        </View>
+      )}
     </View>
   );
 }
@@ -66,25 +77,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   alertsContainer: {
+    marginTop: 16,
     gap: 8,
   },
-  alert: {
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#4CAF50',
+  },
+  alertItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 8,
+    backgroundColor: '#FFF3E0',
+    padding: 12,
     borderRadius: 8,
     gap: 8,
   },
-  warning: {
-    backgroundColor: Colors.warning,
-  },
-  danger: {
-    backgroundColor: Colors.danger,
-  },
-  info: {
-    backgroundColor: Colors.info,
-  },
   alertText: {
-    color: 'white',
+    color: Colors.warning,
+    flex: 1,
   }
 });

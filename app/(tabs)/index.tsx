@@ -12,6 +12,22 @@ import { StreamingRecorder } from '@/components/StreamingRecorder';
 export default function HomeScreen() {
   const [isRecording, setIsRecording] = useState(false);
   const [analysis, setAnalysis] = useState<CallAnalysisType | null>(null);
+  const [streamingAlerts, setStreamingAlerts] = useState<string[]>([]);
+
+  const handleStreamingAnalysis = (streamAnalysis: Partial<CallAnalysisType>) => {
+    if (streamAnalysis.suspicious) {
+      // Add new alerts to the list
+      setStreamingAlerts(prev => [...prev, ...(streamAnalysis.reasons || [])]);
+      
+      // Show the analysis in the AlertDisplay
+      setAnalysis({
+        suspicious: true,
+        confidence: streamAnalysis.confidence || 0.85,
+        reasons: streamAnalysis.reasons || [],
+        timestamps: []
+      });
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -19,18 +35,15 @@ export default function HomeScreen() {
         <CallHeader />
         
         <StreamingRecorder 
-          onAnalysisReceived={analysis => {
-            // Handle streaming analysis updates
-            if (analysis.suspicious) {
-              // Show real-time alert
-              console.log("ye kuch to update diya")
-            }
-          }}
+          onAnalysisReceived={handleStreamingAnalysis}
         />
         
         <CallRecorder 
           isRecording={isRecording}
-          onRecordingStart={() => setIsRecording(true)}
+          onRecordingStart={() => {
+            setIsRecording(true);
+            setStreamingAlerts([]);
+          }}
           onRecordingStop={() => setIsRecording(false)}
           onAnalysisReceived={setAnalysis}
         />
@@ -38,10 +51,11 @@ export default function HomeScreen() {
         {isRecording && (
           <LiveAnalysis 
             isActive={isRecording}
+            alerts={streamingAlerts}
           />
         )}
 
-        {analysis && (
+        {analysis && !isRecording && (
           <AlertDisplay 
             analysis={analysis}
             onDismiss={() => setAnalysis(null)}

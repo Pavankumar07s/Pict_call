@@ -9,6 +9,6 @@ for file in test_files/*.wav; do
     curl -X POST \
          -H "Content-Type: multipart/form-data" \
          -F "audio_chunk=@$file;type=audio/wav" \
-         http://192.168.244.23:3000/analyze-stream
+         http://192.168.244.184:3000/analyze-stream
     echo -e "\n"
 done

@@ -85,27 +85,78 @@ async def transcribe_audio(audio_array: np.ndarray, sr: int) -> str:
 # Audio processing functions
 async def process_audio_chunk(audio_chunk: bytes) -> StreamAnalysisResponse:
     try:
-        # Convert bytes to numpy array using librosa
-        audio_array, sr = librosa.load(io.BytesIO(audio_chunk), sr=None)
+        logger.info("Processing audio chunk")
+        
+        # Create temporary files for conversion if needed
+        with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_wav:
+            try:
+                # Try loading directly first
+                audio_array, sr = librosa.load(io.BytesIO(audio_chunk), sr=None)
+            except:
+                logger.info("Direct load failed, trying conversion...")
+                # Write the chunk to temporary file
+                temp_wav.write(audio_chunk)
+                temp_wav.flush()
+                
+                # Convert using ffmpeg if needed
+                subprocess.run([
+                    'ffmpeg', 
+                    '-y',
+                    '-i', temp_wav.name,
+                    '-acodec', 'pcm_s16le',
+                    '-ar', '44100',
+                    '-ac', '1',
+                    temp_wav.name + '_converted.wav'
+                ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                
+                # Load the converted audio
+                audio_array, sr = librosa.load(temp_wav.name + '_converted.wav', sr=None)
+                
+                # Cleanup converted file
+                try:
+                    os.unlink(temp_wav.name + '_converted.wav')
+                except:
+                    pass
+
         logger.info(f"Audio chunk loaded. Sample rate: {sr}, Shape: {audio_array.shape}")
 
         # Transcribe audio
         transcription = await transcribe_audio(audio_array, sr)
+        logger.info(f"Transcription: {transcription}")
         
-        # Keyword detection
-        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
-        detected_words = transcription.lower().split()
+        # Keyword detection with improved matching
+        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote", "access", "install"]
+        detected_words = []
+        transcription_lower = transcription.lower()
         
-        is_suspicious = any(keyword in transcription.lower() for keyword in suspicious_keywords)
+        for keyword in suspicious_keywords:
+            if keyword in transcription_lower:
+                detected_words.append(keyword)
         
-        logger.info("Chunk analysis complete")
-        return StreamAnalysisResponse(
+        is_suspicious = len(detected_words) > 0
+        confidence = 0.85 if is_suspicious else 0.15
+        
+        # Generate meaningful reasons
+        reasons = []
+        if is_suspicious:
+            if any(word in ["otp", "code", "number"] for word in detected_words):
+                reasons.append("Potential OTP request detected")
+            if any(word in ["anydesk", "teamviewer", "remote", "access"] for word in detected_words):
+                reasons.append("Remote access software mentioned")
+            if "install" in detected_words:
+                reasons.append("Installation request detected")
+        
+        response = StreamAnalysisResponse(
             suspicious=is_suspicious,
-            confidence=0.85 if is_suspicious else 0.15,
-            reasons=[f"Detected keywords in: '{transcription}'"] if is_suspicious else [],
+            confidence=confidence,
+            reasons=reasons,
             current_timestamp=datetime.now().timestamp(),
-            detected_keywords=[word for word in detected_words if word in suspicious_keywords]
+            detected_keywords=detected_words
         )
+        
+        logger.info(f"Stream analysis response: {response}")
+        return response
+
     except Exception as e:
         logger.error(f"Error processing audio chunk: {str(e)}")
         logger.exception("Full traceback:")
@@ -113,6 +164,12 @@ async def process_audio_chunk(audio_chunk: bytes) -> StreamAnalysisResponse:
             status_code=500,
             detail=f"Error processing audio chunk: {str(e)}"
         )
+    finally:
+        # Ensure cleanup
+        try:
+            os.unlink(temp_wav.name)
+        except:
+            pass
 
 async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
     try:
@@ -135,9 +192,19 @@ async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
                         temp_m4a.write(audio_data)
                         temp_m4a.flush()
                         
-                        # Convert to WAV using ffmpeg
+                        # Convert to WAV using ffmpeg with -y flag to force overwrite
                         temp_wav = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
-                        subprocess.run(['ffmpeg', '-i', temp_m4a.name, '-acodec', 'pcm_s16le', '-ar', '44100', temp_wav.name])
+                        subprocess.run([
+                            'ffmpeg', 
+                            '-y',  # Force overwrite
+                            '-i', temp_m4a.name, 
+                            '-acodec', 'pcm_s16le', 
+                            '-ar', '44100', 
+                            temp_wav.name
+                        ], 
+                        # Redirect ffmpeg output to suppress console spam
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE)
                         
                         # Load the converted WAV
                         audio_array, sr = librosa.load(temp_wav.name, sr=None)
@@ -218,11 +285,31 @@ async def analyze_stream(
     audio_chunk: UploadFile = File(...)  
 ):
     try:
-        logger.info("Received streaming chunk")
+        logger.info(f"Received streaming chunk: {audio_chunk.filename}")
+        
+        # Validate content type
+        content_type = audio_chunk.content_type
+        if not content_type or not content_type.startswith(('audio/', 'application/octet-stream')):
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid content type: {content_type}"
+            )
+        
+        # Read chunk data
         chunk_data = await audio_chunk.read()
+        if not chunk_data:
+            raise HTTPException(
+                status_code=400,
+                detail="Empty audio chunk received"
+            )
+        
         return await process_audio_chunk(chunk_data)
+        
+    except HTTPException as he:
+        raise he
     except Exception as e:
         logger.error(f"Stream endpoint error: {str(e)}")
+        logger.exception("Full traceback:")
         raise HTTPException(
             status_code=500,
             detail=f"Stream processing failed: {str(e)}"

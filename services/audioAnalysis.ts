@@ -2,7 +2,7 @@ import { CallAnalysisType } from '@/types';
 import { Platform } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.244.23:3000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http:/192.168.244.184:3000';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 
@@ -70,14 +70,18 @@ export async function analyzeAudio(audioUri: string): Promise<CallAnalysisType> 
 }
 
 export async function analyzeStreamingAudio(
-  audioChunk: ArrayBuffer,
+  audioData: string,
   onAnalysisUpdate: (analysis: Partial<CallAnalysisType>) => void
 ): Promise<void> {
   try {
     console.log('Sending streaming chunk');
     const formData = new FormData();
-    const blob = new Blob([audioChunk], { type: 'audio/wav' });
-    formData.append('audio_chunk', blob, 'chunk.wav');
+
+    formData.append('audio_chunk', {
+      uri: `data:audio/wav;base64,${audioData}`,
+      type: 'audio/wav',
+      name: 'chunk.wav',
+    } as any);
 
     const response = await retryOperation(() =>
       fetch(`${API_URL}/analyze-stream`, {
@@ -85,17 +89,25 @@ export async function analyzeStreamingAudio(
         body: formData,
         headers: {
           'Accept': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
       })
     );
 
     if (!response.ok) {
-      throw new Error(`Streaming analysis failed with status: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Stream error response:', errorText);
+      throw new Error(`Streaming failed with status: ${response.status}`);
     }
 
     const result = await response.json();
     console.log('Streaming analysis result:', result);
-    onAnalysisUpdate(result);
+    
+    if (isValidPartialAnalysisResponse(result)) {
+      onAnalysisUpdate(result);
+    } else {
+      console.error('Invalid response format:', result);
+    }
   } catch (error) {
     console.error('Error analyzing audio stream:', error);
     onAnalysisUpdate({

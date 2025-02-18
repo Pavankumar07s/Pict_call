@@ -333,3 +333,337 @@ fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening 
 2025-02-18 21:03:15,108 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (163170,)
 2025-02-18 21:03:15,845 - main - INFO - Transcription complete:  OTP OTP 12 OTP OTP
 2025-02-18 21:03:15,855 - main - INFO - Analysis complete
+2025-02-18 21:19:38,719 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:19:38,720 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:19:40,141 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:19:57,435 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (202860,)
+2025-02-18 21:19:59,375 - main - INFO - Transcription complete: 
+2025-02-18 21:19:59,376 - main - INFO - Analysis complete
+2025-02-18 21:20:55,312 - main - INFO - Received streaming chunk
+2025-02-18 21:20:55,324 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (158976,)
+2025-02-18 21:20:56,465 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 21:20:56,466 - main - INFO - Chunk analysis complete
+2025-02-18 21:20:56,494 - main - INFO - Received streaming chunk
+2025-02-18 21:20:56,495 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 21:20:57,479 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 21:20:57,479 - main - INFO - Chunk analysis complete
+2025-02-18 21:20:57,510 - main - INFO - Received streaming chunk
+2025-02-18 21:20:57,510 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 21:20:58,380 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 21:20:58,381 - main - INFO - Chunk analysis complete
+2025-02-18 21:20:58,402 - main - INFO - Received streaming chunk
+2025-02-18 21:20:58,405 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 21:20:59,243 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 21:20:59,243 - main - INFO - Chunk analysis complete
+2025-02-18 21:22:54,988 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:22:54,990 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:22:56,824 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:22:57,725 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (268128,)
+2025-02-18 21:38:55,066 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:38:55,067 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:38:56,683 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:38:57,544 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (293706,)
+2025-02-18 21:39:02,565 - main - INFO - Transcription complete:  Please provide OTP for verification. This is mandatory for door purchase.
+2025-02-18 21:39:02,566 - main - INFO - Analysis complete
+2025-02-18 21:39:30,343 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:39:30,344 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:39:30,356 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:39:30,698 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (189630,)
+2025-02-18 21:39:31,564 - main - INFO - Transcription complete:  OTP OTP OTP OTP OTP 1212 OTP OTP
+2025-02-18 21:39:31,565 - main - INFO - Analysis complete
+2025-02-18 21:39:46,243 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:39:46,244 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:39:46,244 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:39:46,357 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (403956,)
+2025-02-18 21:39:47,142 - main - INFO - Transcription complete:  Hello sir, I am talking behalf of Sam Sam Company. Please provide your OTP for your further process.
+2025-02-18 21:39:47,143 - main - INFO - Analysis complete
+2025-02-18 21:42:36,581 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:42:36,581 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:42:36,582 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:42:36,702 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (142002,)
+2025-02-18 21:42:37,399 - main - INFO - Transcription complete:  OTP OTP OTP 1212 OTP
+2025-02-18 21:42:37,400 - main - INFO - Analysis complete
+2025-02-18 21:43:12,251 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:43:12,251 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:43:12,251 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:43:12,387 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (764694,)
+2025-02-18 21:43:13,810 - main - INFO - Transcription complete:  ok sir so i want to tell you that ki kahipayi humayi ye milata ki voh milata tabham aapko bholte hai ki ye milata voh milata aapha humo oTP bhejo ta ki hum oTP oTP karke aapki ghana maadha
+2025-02-18 21:43:13,811 - main - INFO - Analysis complete
+2025-02-18 21:43:49,097 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:43:49,097 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:43:49,098 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:43:49,217 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (508032,)
+2025-02-18 21:43:50,123 - main - INFO - Transcription complete:  Hello sir, good morning, how are you? We are talking about Samsung company. Can you click on next for further process?
+2025-02-18 21:43:50,123 - main - INFO - Analysis complete
+2025-02-18 21:44:07,492 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:44:07,492 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:44:07,492 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:44:07,602 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (335160,)
+2025-02-18 21:44:09,681 - main - INFO - Transcription complete:  I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it. I'm not sure if I can do it.
+2025-02-18 21:44:09,681 - main - INFO - Analysis complete
+2025-02-18 21:54:28,169 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:54:28,169 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:54:28,172 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:54:28,479 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (194040,)
+2025-02-18 21:54:29,240 - main - INFO - Transcription complete: 
+2025-02-18 21:54:29,241 - main - INFO - Analysis complete
+2025-02-18 21:58:14,147 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:58:14,147 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:58:14,149 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:58:14,485 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (630630,)
+2025-02-18 21:58:15,247 - main - INFO - Transcription complete: 
+2025-02-18 21:58:15,247 - main - INFO - Analysis complete
+2025-02-18 22:02:12,401 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:02:12,401 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:02:12,403 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:02:12,706 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (358974,)
+2025-02-18 22:02:13,565 - main - INFO - Transcription complete:  Yes sir I am talking we have for Chancham please provide your OTP so that we can get
+2025-02-18 22:02:13,566 - main - INFO - Analysis complete
+2025-02-18 22:05:25,184 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:05:25,184 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:05:25,184 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:05:25,330 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (162288,)
+2025-02-18 22:05:25,987 - main - INFO - Transcription complete: 
+2025-02-18 22:05:25,988 - main - INFO - Analysis complete
+2025-02-18 22:05:32,663 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:05:32,663 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:05:32,663 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:05:32,799 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (125244,)
+2025-02-18 22:05:33,440 - main - INFO - Transcription complete: 
+2025-02-18 22:05:33,440 - main - INFO - Analysis complete
+2025-02-18 22:07:23,477 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:07:23,486 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:07:23,505 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:07:24,466 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (161406,)
+2025-02-18 22:07:26,243 - main - INFO - Transcription complete:  OTP OTP OTP OTP OTP
+2025-02-18 22:07:26,247 - main - INFO - Analysis complete
+2025-02-18 22:08:12,320 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:08:12,320 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:08:12,320 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:08:12,430 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (154350,)
+2025-02-18 22:08:13,060 - main - INFO - Transcription complete: 
+2025-02-18 22:08:13,061 - main - INFO - Analysis complete
+2025-02-18 22:08:31,453 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:08:31,453 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:08:31,454 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:08:31,557 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (211680,)
+2025-02-18 22:08:34,328 - main - INFO - Transcription complete:  i am tired of walking
+2025-02-18 22:08:34,328 - main - INFO - Analysis complete
+2025-02-18 22:08:47,591 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:08:47,591 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:08:47,591 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:08:47,686 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (150822,)
+2025-02-18 22:08:48,451 - main - INFO - Transcription complete:  Hello, hello, to be, to be, to be, to be, to be.
+2025-02-18 22:08:48,451 - main - INFO - Analysis complete
+2025-02-18 22:09:02,564 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:09:02,565 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:09:02,574 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:09:02,673 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (204624,)
+2025-02-18 22:09:10,013 - main - INFO - Transcription complete:  can you provide you OTB for verification
+2025-02-18 22:09:10,014 - main - INFO - Analysis complete
+2025-02-18 22:10:54,801 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:10:54,801 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:10:54,803 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:10:55,080 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (306936,)
+2025-02-18 22:10:55,908 - main - INFO - Transcription complete:  Hello Sir, I am talking via aft Samsung company. Please provide OTP for verification.
+2025-02-18 22:10:55,910 - main - INFO - Analysis complete
+2025-02-18 22:16:43,887 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:16:43,889 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:16:43,894 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:16:44,239 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (179046,)
+2025-02-18 22:16:45,139 - main - INFO - Transcription complete:  Please provide your OTP.
+2025-02-18 22:16:45,140 - main - INFO - Analysis complete
+2025-02-18 22:18:42,881 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:18:42,881 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:18:43,876 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:18:44,177 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (123480,)
+2025-02-18 22:18:45,433 - main - INFO - Transcription complete:  4DP 4DP 4DP
+2025-02-18 22:18:45,433 - main - INFO - Analysis complete
+2025-02-18 22:21:44,107 - main - INFO - Received audio file: recording.wav
+2025-02-18 22:21:44,108 - main - INFO - Starting to process file: recording.wav
+2025-02-18 22:21:44,112 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 22:21:44,442 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (199332,)
+2025-02-18 22:21:45,398 - main - INFO - Transcription complete:  Please provide OTP for your verification.
+2025-02-18 22:21:45,400 - main - INFO - Analysis complete
+2025-02-18 22:22:44,185 - main - INFO - Received streaming chunk: combined_scam.wav
+2025-02-18 22:22:44,185 - main - INFO - Processing audio chunk
+2025-02-18 22:22:44,186 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (159552,)
+2025-02-18 22:22:44,986 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:22:44,986 - main - INFO - Transcription:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:22:44,988 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected', 'Installation request detected'] current_timestamp=1739897564.986973 detected_keywords=['otp', 'install']
+2025-02-18 22:22:45,002 - main - INFO - Received streaming chunk: normal_conversation.wav
+2025-02-18 22:22:45,002 - main - INFO - Processing audio chunk
+2025-02-18 22:22:45,003 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 22:22:45,774 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:22:45,775 - main - INFO - Transcription:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:22:45,775 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739897565.775328 detected_keywords=[]
+2025-02-18 22:22:45,790 - main - INFO - Received streaming chunk: otp_request.wav
+2025-02-18 22:22:45,790 - main - INFO - Processing audio chunk
+2025-02-18 22:22:45,791 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 22:22:46,524 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:22:46,524 - main - INFO - Transcription:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:22:46,524 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739897566.5247 detected_keywords=['otp']
+2025-02-18 22:22:46,547 - main - INFO - Received streaming chunk: remote_access.wav
+2025-02-18 22:22:46,547 - main - INFO - Processing audio chunk
+2025-02-18 22:22:46,549 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 22:22:47,309 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:22:47,310 - main - INFO - Transcription:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:22:47,310 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Remote access software mentioned', 'Installation request detected'] current_timestamp=1739897567.310342 detected_keywords=['remote', 'access', 'install']
+2025-02-18 22:33:25,471 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 22:33:25,500 - main - INFO - Processing audio chunk
+2025-02-18 22:33:25,542 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 22:33:26,309 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 22:33:28,877 - main - INFO - Transcription complete: 
+2025-02-18 22:33:28,884 - main - INFO - Transcription: 
+2025-02-18 22:33:28,890 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739898208.884759 detected_keywords=[]
+2025-02-18 22:34:44,898 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 22:34:44,899 - main - INFO - Processing audio chunk
+2025-02-18 22:34:44,899 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 22:34:45,043 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 22:34:45,808 - main - INFO - Transcription complete:  OTP OTP OTP
+2025-02-18 22:34:45,809 - main - INFO - Transcription:  OTP OTP OTP
+2025-02-18 22:34:45,810 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739898285.810065 detected_keywords=['otp']
+2025-02-18 22:35:24,922 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 22:35:24,931 - main - INFO - Processing audio chunk
+2025-02-18 22:35:26,067 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 22:35:26,500 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 22:35:28,676 - main - INFO - Transcription complete:  use access and index or to pay give access and
+2025-02-18 22:35:28,676 - main - INFO - Transcription:  use access and index or to pay give access and
+2025-02-18 22:35:28,676 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Remote access software mentioned'] current_timestamp=1739898328.676795 detected_keywords=['access']
+2025-02-18 22:41:42,213 - main - INFO - Received streaming chunk: combined_scam.wav
+2025-02-18 22:41:42,221 - main - INFO - Processing audio chunk
+2025-02-18 22:41:42,249 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (158976,)
+2025-02-18 22:41:43,774 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:41:43,779 - main - INFO - Transcription:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:41:43,782 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected', 'Installation request detected'] current_timestamp=1739898703.779361 detected_keywords=['otp', 'install']
+2025-02-18 22:41:43,820 - main - INFO - Received streaming chunk: normal_conversation.wav
+2025-02-18 22:41:43,820 - main - INFO - Processing audio chunk
+2025-02-18 22:41:43,822 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 22:41:45,076 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:41:45,077 - main - INFO - Transcription:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:41:45,077 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739898705.077693 detected_keywords=[]
+2025-02-18 22:41:45,096 - main - INFO - Received streaming chunk: otp_request.wav
+2025-02-18 22:41:45,096 - main - INFO - Processing audio chunk
+2025-02-18 22:41:45,098 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 22:41:46,051 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:41:46,051 - main - INFO - Transcription:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:41:46,052 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739898706.051956 detected_keywords=['otp']
+2025-02-18 22:41:46,065 - main - INFO - Received streaming chunk: remote_access.wav
+2025-02-18 22:41:46,065 - main - INFO - Processing audio chunk
+2025-02-18 22:41:46,067 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 22:41:47,017 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:41:47,018 - main - INFO - Transcription:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:41:47,018 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Remote access software mentioned', 'Installation request detected'] current_timestamp=1739898707.018569 detected_keywords=['remote', 'access', 'install']
+2025-02-18 22:54:05,199 - main - INFO - Received streaming chunk: combined_scam.wav
+2025-02-18 22:54:05,200 - main - INFO - Processing audio chunk
+2025-02-18 22:54:07,814 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (158976,)
+2025-02-18 22:54:10,230 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:54:10,231 - main - INFO - Transcription:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 22:54:10,231 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected', 'Installation request detected'] current_timestamp=1739899450.231599 detected_keywords=['otp', 'install']
+2025-02-18 22:54:10,253 - main - INFO - Received streaming chunk: normal_conversation.wav
+2025-02-18 22:54:10,254 - main - INFO - Processing audio chunk
+2025-02-18 22:54:10,256 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 22:54:11,412 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:54:11,412 - main - INFO - Transcription:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 22:54:11,413 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739899451.412963 detected_keywords=[]
+2025-02-18 22:54:11,443 - main - INFO - Received streaming chunk: otp_request.wav
+2025-02-18 22:54:11,443 - main - INFO - Processing audio chunk
+2025-02-18 22:54:11,444 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 22:54:12,443 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:54:12,444 - main - INFO - Transcription:  Please share your OTP number that you just received on your phone.
+2025-02-18 22:54:12,444 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739899452.444482 detected_keywords=['otp']
+2025-02-18 22:54:12,464 - main - INFO - Received streaming chunk: remote_access.wav
+2025-02-18 22:54:12,465 - main - INFO - Processing audio chunk
+2025-02-18 22:54:12,468 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (144000,)
+2025-02-18 22:54:13,511 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:54:13,512 - main - INFO - Transcription:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 22:54:13,512 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Remote access software mentioned', 'Installation request detected'] current_timestamp=1739899453.512147 detected_keywords=['remote', 'access', 'install']
+2025-02-18 22:56:31,317 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 22:56:31,325 - main - INFO - Processing audio chunk
+2025-02-18 22:56:31,347 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 22:56:31,601 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 22:56:32,716 - main - INFO - Transcription complete: 
+2025-02-18 22:56:32,721 - main - INFO - Transcription: 
+2025-02-18 22:56:32,726 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739899592.721338 detected_keywords=[]
+2025-02-18 22:57:14,177 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 22:57:14,177 - main - INFO - Processing audio chunk
+2025-02-18 22:57:14,178 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 22:57:14,308 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (152586,)
+2025-02-18 22:57:24,735 - main - INFO - Transcription complete:  Hello! Hello XP! Canon Pro asideuellotta Hello!
+2025-02-18 22:57:24,736 - main - INFO - Transcription:  Hello! Hello XP! Canon Pro asideuellotta Hello!
+2025-02-18 22:57:24,736 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739899644.736228 detected_keywords=[]
+2025-02-18 23:02:52,484 - main - INFO - Received audio file: recording.wav
+2025-02-18 23:02:52,491 - main - INFO - Starting to process file: recording.wav
+2025-02-18 23:02:52,506 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 23:02:53,054 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (151704,)
+2025-02-18 23:02:54,407 - main - INFO - Transcription complete:  please provide OTP or TPOTP
+2025-02-18 23:02:54,411 - main - INFO - Analysis complete
+2025-02-18 23:03:05,409 - main - INFO - Received audio file: recording.wav
+2025-02-18 23:03:05,409 - main - INFO - Starting to process file: recording.wav
+2025-02-18 23:03:05,410 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 23:03:05,748 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (279594,)
+2025-02-18 23:03:06,918 - main - INFO - Transcription complete:  Hello bro how are you? Let's go on a trip bring your card which is so that we can do payments.
+2025-02-18 23:03:06,919 - main - INFO - Analysis complete
+2025-02-18 23:04:51,072 - main - INFO - Received audio file: recording.wav
+2025-02-18 23:04:51,072 - main - INFO - Starting to process file: recording.wav
+2025-02-18 23:04:51,074 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 23:04:51,337 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (168462,)
+2025-02-18 23:04:52,201 - main - INFO - Transcription complete:  OTP OTP please provide OTP OTP
+2025-02-18 23:04:52,202 - main - INFO - Analysis complete
+2025-02-18 23:05:09,132 - main - INFO - Received streaming chunk: combined_scam.wav
+2025-02-18 23:05:09,133 - main - INFO - Processing audio chunk
+2025-02-18 23:05:09,135 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (158976,)
+2025-02-18 23:05:10,299 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 23:05:10,300 - main - INFO - Transcription:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 23:05:10,302 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected', 'Installation request detected'] current_timestamp=1739900110.300402 detected_keywords=['otp', 'install']
+2025-02-18 23:05:10,330 - main - INFO - Received streaming chunk: normal_conversation.wav
+2025-02-18 23:05:10,330 - main - INFO - Processing audio chunk
+2025-02-18 23:05:10,332 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 23:05:11,558 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 23:05:11,559 - main - INFO - Transcription:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 23:05:11,560 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739900111.560022 detected_keywords=[]
+2025-02-18 23:05:11,585 - main - INFO - Received streaming chunk: otp_request.wav
+2025-02-18 23:05:11,586 - main - INFO - Processing audio chunk
+2025-02-18 23:05:11,588 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 23:05:12,769 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 23:05:12,770 - main - INFO - Transcription:  Please share your OTP number that you just received on your phone.
+2025-02-18 23:05:12,771 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739900112.770956 detected_keywords=['otp']
+2025-02-18 23:05:12,792 - main - INFO - Received streaming chunk: remote_access.wav
+2025-02-18 23:05:12,793 - main - INFO - Processing audio chunk
+2025-02-18 23:05:12,797 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 23:05:13,910 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 23:05:13,911 - main - INFO - Transcription:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 23:05:13,911 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Remote access software mentioned', 'Installation request detected'] current_timestamp=1739900113.911185 detected_keywords=['remote', 'access', 'install']
+2025-02-18 23:10:05,267 - main - INFO - Received audio file: recording.wav
+2025-02-18 23:10:05,267 - main - INFO - Starting to process file: recording.wav
+2025-02-18 23:10:05,271 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 23:10:05,789 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (40572,)
+2025-02-18 23:10:06,772 - main - INFO - Transcription complete: 
+2025-02-18 23:10:06,776 - main - INFO - Analysis complete
+2025-02-18 23:12:50,533 - main - INFO - Received audio file: recording.wav
+2025-02-18 23:12:50,534 - main - INFO - Starting to process file: recording.wav
+2025-02-18 23:12:50,536 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 23:12:50,893 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (156996,)
+2025-02-18 23:13:03,757 - main - INFO - Transcription complete:  OTP, OTP, OTP, OTP, OTP, OTP, OTP.
+2025-02-18 23:13:03,759 - main - INFO - Analysis complete
+2025-02-18 23:13:21,403 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:13:21,404 - main - INFO - Processing audio chunk
+2025-02-18 23:13:21,405 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:13:21,576 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 23:13:22,426 - main - INFO - Transcription complete: 
+2025-02-18 23:13:22,427 - main - INFO - Transcription: 
+2025-02-18 23:13:22,427 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739900602.427266 detected_keywords=[]
+2025-02-18 23:13:59,612 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:13:59,612 - main - INFO - Processing audio chunk
+2025-02-18 23:13:59,612 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:13:59,774 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 23:14:00,678 - main - INFO - Transcription complete:  OTP OTP OTP OTP OTP OTP
+2025-02-18 23:14:00,688 - main - INFO - Transcription:  OTP OTP OTP OTP OTP OTP
+2025-02-18 23:14:00,689 - main - INFO - Stream analysis response: suspicious=True confidence=0.85 reasons=['Potential OTP request detected'] current_timestamp=1739900640.689048 detected_keywords=['otp']
+2025-02-18 23:14:50,411 - main - INFO - Received streaming chunk: chunk.wav
+2025-02-18 23:14:50,411 - main - INFO - Processing audio chunk
+2025-02-18 23:14:50,412 - main - INFO - Direct load failed, trying conversion...
+2025-02-18 23:14:50,571 - main - INFO - Audio chunk loaded. Sample rate: 44100, Shape: (151704,)
+2025-02-18 23:14:51,363 - main - INFO - Transcription complete: 
+2025-02-18 23:14:51,365 - main - INFO - Transcription: 
+2025-02-18 23:14:51,365 - main - INFO - Stream analysis response: suspicious=False confidence=0.15 reasons=[] current_timestamp=1739900691.365544 detected_keywords=[]
