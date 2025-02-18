@@ -12,6 +12,9 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import io
 from fastapi.responses import JSONResponse
+import whisper
+from pathlib import Path
+import tempfile
 
 app = FastAPI()
 
@@ -52,37 +55,54 @@ class StreamAnalysisResponse(BaseModel):
     current_timestamp: Optional[float]
     detected_keywords: Optional[List[str]]
 
+# Initialize Whisper model (do this at startup)
+model = whisper.load_model("base")
+
+async def transcribe_audio(audio_array: np.ndarray, sr: int) -> str:
+    try:
+        # Create a temporary WAV file
+        with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
+            sf.write(temp_file.name, audio_array, sr)
+            
+            # Transcribe using Whisper
+            result = model.transcribe(temp_file.name)
+            transcription = result["text"]
+            
+            logger.info(f"Transcription complete: {transcription}")
+            return transcription
+    except Exception as e:
+        logger.error(f"Transcription error: {str(e)}")
+        raise
+    finally:
+        # Clean up temporary file
+        try:
+            Path(temp_file.name).unlink()
+        except:
+            pass
+
 # Audio processing functions
 async def process_audio_chunk(audio_chunk: bytes) -> StreamAnalysisResponse:
     try:
-        # Convert bytes to numpy array using librosa instead of soundfile
+        # Convert bytes to numpy array using librosa
         audio_array, sr = librosa.load(io.BytesIO(audio_chunk), sr=None)
         logger.info(f"Audio chunk loaded. Sample rate: {sr}, Shape: {audio_array.shape}")
 
-        # Extract features
-        try:
-            mfccs = librosa.feature.mfcc(y=audio_array, sr=sr, n_mfcc=13)
-            logger.info(f"MFCC extraction complete for chunk. Shape: {mfccs.shape}")
-        except Exception as feature_error:
-            logger.error(f"Feature extraction error: {str(feature_error)}")
-            raise HTTPException(
-                status_code=500,
-                detail=f"Failed to extract features: {str(feature_error)}"
-            )
-
-        # Placeholder for speech-to-text and keyword detection
-        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
-        detected_words = []  # Replace with actual speech-to-text implementation
+        # Transcribe audio
+        transcription = await transcribe_audio(audio_array, sr)
         
-        is_suspicious = any(word in detected_words for word in suspicious_keywords)
+        # Keyword detection
+        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
+        detected_words = transcription.lower().split()
+        
+        is_suspicious = any(keyword in transcription.lower() for keyword in suspicious_keywords)
         
         logger.info("Chunk analysis complete")
         return StreamAnalysisResponse(
             suspicious=is_suspicious,
             confidence=0.85 if is_suspicious else 0.15,
-            reasons=["Detected suspicious keywords"] if is_suspicious else [],
+            reasons=[f"Detected keywords in: '{transcription}'"] if is_suspicious else [],
             current_timestamp=datetime.now().timestamp(),
-            detected_keywords=detected_words
+            detected_keywords=[word for word in detected_words if word in suspicious_keywords]
         )
     except Exception as e:
         logger.error(f"Error processing audio chunk: {str(e)}")
@@ -98,7 +118,6 @@ async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
         audio_data = await file.read()
         
         try:
-            # Try to load audio with librosa which can handle multiple formats
             audio_array, sr = librosa.load(io.BytesIO(audio_data), sr=None)
             logger.info(f"Audio loaded successfully. Sample rate: {sr}, Shape: {audio_array.shape}")
         except Exception as load_error:
@@ -108,38 +127,38 @@ async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
                 detail=f"Failed to read audio file: {str(load_error)}"
             )
 
-        try:
-            # Process with librosa
-            mfccs = librosa.feature.mfcc(y=audio_array, sr=sr, n_mfcc=13)
-            logger.info(f"MFCC extraction complete. Shape: {mfccs.shape}")
-        except Exception as librosa_error:
-            logger.error(f"Librosa processing error: {str(librosa_error)}")
-            raise HTTPException(
-                status_code=500,
-                detail=f"Failed to process audio features: {str(librosa_error)}"
-            )
-
-        # Dummy analysis for testing
-        suspicious_segments = [
-            {
-                "start": 10.5,
-                "end": 15.2,
-                "text": "Please provide your OTP",
-                "type": "otp"
-            }
-        ]
+        # Transcribe audio
+        transcription = await transcribe_audio(audio_array, sr)
+        print(transcription)
+        
+        # Analyze transcription for suspicious content
+        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
+        timestamps = []
+        
+        # Simple timestamp generation (you might want to improve this)
+        words = transcription.split()
+        current_time = 0
+        for word in words:
+            if any(keyword in word.lower() for keyword in suspicious_keywords):
+                timestamps.append({
+                    "start": current_time,
+                    "end": current_time + 2,  # Assuming each word takes ~2 seconds
+                    "text": word,
+                    "type": "otp" if "otp" in word.lower() else "remote_access"
+                })
+            current_time += 2
         
         logger.info("Analysis complete")
         return AnalysisResponse(
-            suspicious=len(suspicious_segments) > 0,
-            confidence=0.92,
-            reasons=["Detected OTP request"],
-            timestamps=suspicious_segments
+            suspicious=len(timestamps) > 0,
+            confidence=0.92 if len(timestamps) > 0 else 0.15,
+            reasons=[f"Detected suspicious content in transcription: '{transcription}'"] if timestamps else [],
+            timestamps=timestamps
         )
 
     except Exception as e:
         logger.error(f"Error processing complete audio: {str(e)}")
-        logger.exception("Full traceback:")  # This will log the full stack trace
+        logger.exception("Full traceback:")
         raise HTTPException(
             status_code=500,
             detail=f"Error processing audio file: {str(e)}"

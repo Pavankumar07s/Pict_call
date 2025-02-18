@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Create a short test audio file
-sox -n test_stream.wav synth 1 sine 440
+# First generate the test audio files if they don't exist
+python generate_test_audio.py
 
-# Test the streaming endpoint
-echo "Testing streaming endpoint..."
-curl -X POST \
-     -H "Content-Type: multipart/form-data" \
-     -F "audio_chunk=@test_stream.wav;type=audio/wav" \
-     http://192.168.126.64:3000/analyze-stream
-
-# Clean up
-rm test_stream.wav
+# Test the streaming endpoint with different scenarios
+for file in test_files/*.wav; do
+    echo "Testing streaming endpoint with $(basename "$file")..."
+    curl -X POST \
+         -H "Content-Type: multipart/form-data" \
+         -F "audio_chunk=@$file;type=audio/wav" \
+         http://192.168.126.97:3000/analyze-stream
+    echo -e "\n"
+done

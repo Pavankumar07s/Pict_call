@@ -12,7 +12,7 @@ sox -n test.wav synth 3 sine 440
 curl -X POST \
      -H "Content-Type: multipart/form-data" \
      -F "file=@test.wav;type=audio/wav" \
-     http://192.168.126.64:3000/analyze
+     http://192.168.126.97:3000/analyze
 
 # Clean up
 rm test.wav

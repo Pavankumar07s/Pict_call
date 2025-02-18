@@ -111,3 +111,73 @@ fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening 
 2025-02-18 03:21:26,695 - main - INFO - Audio loaded successfully. Sample rate: 48000, Shape: (144000,)
 2025-02-18 03:21:26,793 - main - INFO - MFCC extraction complete. Shape: (13, 282)
 2025-02-18 03:21:26,793 - main - INFO - Analysis complete
+2025-02-18 09:52:05,242 - main - INFO - Received streaming chunk
+2025-02-18 09:52:07,196 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 09:52:07,282 - main - INFO - MFCC extraction complete for chunk. Shape: (13, 94)
+2025-02-18 09:52:07,282 - main - INFO - Chunk analysis complete
+2025-02-18 09:52:11,995 - main - INFO - Received streaming chunk
+2025-02-18 09:52:11,996 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 09:52:12,039 - main - INFO - MFCC extraction complete for chunk. Shape: (13, 94)
+2025-02-18 09:52:12,039 - main - INFO - Chunk analysis complete
+2025-02-18 09:52:26,999 - main - INFO - Received audio file: test.wav
+2025-02-18 09:52:26,999 - main - INFO - Starting to process file: test.wav
+2025-02-18 09:52:26,999 - main - INFO - Audio loaded successfully. Sample rate: 48000, Shape: (144000,)
+2025-02-18 09:52:27,035 - main - INFO - MFCC extraction complete. Shape: (13, 282)
+2025-02-18 09:52:27,035 - main - INFO - Analysis complete
+2025-02-18 10:04:32,156 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 10:04:32,161 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 10:04:32,181 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 10:04:32,315 - main - INFO - MFCC extraction complete. Shape: (13, 407)
+2025-02-18 10:04:32,315 - main - INFO - Analysis complete
+2025-02-18 10:11:30,681 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 10:11:30,691 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 10:11:32,157 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 10:11:33,713 - main - INFO - Transcription complete:  Warning. Please do not share your OTP or install remote access applications. This call appears suspicious.
+2025-02-18 10:11:33,713 - main - INFO - Analysis complete
+2025-02-18 10:12:55,086 - main - INFO - Received streaming chunk
+2025-02-18 10:12:55,087 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 10:12:55,749 - main - INFO - Transcription complete: 
+2025-02-18 10:12:55,750 - main - INFO - Chunk analysis complete
+2025-02-18 10:14:48,847 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 10:14:48,847 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 10:14:48,848 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 10:14:49,625 - main - INFO - Transcription complete:  Warning. Please do not share your OTP or install remote access applications. This call appears suspicious.
+2025-02-18 10:14:49,626 - main - INFO - Analysis complete
+2025-02-18 10:15:50,810 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 10:15:50,810 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 10:15:51,865 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 10:15:53,719 - main - INFO - Transcription complete:  Warning. Please do not share your OTP or install remote access applications. This call appears suspicious.
+2025-02-18 10:15:53,719 - main - INFO - Analysis complete
+2025-02-18 10:17:15,582 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 10:17:15,582 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 10:17:16,740 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 10:17:18,080 - main - INFO - Transcription complete:  Warning. Please do not share your OTP or install remote access applications. This call appears suspicious.
+2025-02-18 10:17:18,080 - main - INFO - Analysis complete
+2025-02-18 10:21:49,289 - main - INFO - Received streaming chunk
+2025-02-18 10:21:49,289 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 10:21:50,007 - main - INFO - Transcription complete: 
+2025-02-18 10:21:50,007 - main - INFO - Chunk analysis complete
+2025-02-18 10:21:52,403 - main - INFO - Received streaming chunk
+2025-02-18 10:21:52,403 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 10:21:53,078 - main - INFO - Transcription complete: 
+2025-02-18 10:21:53,078 - main - INFO - Chunk analysis complete
+2025-02-18 10:21:55,373 - main - INFO - Received streaming chunk
+2025-02-18 10:21:55,374 - main - INFO - Audio chunk loaded. Sample rate: 48000, Shape: (48000,)
+2025-02-18 10:21:56,043 - main - INFO - Transcription complete: 
+2025-02-18 10:21:56,043 - main - INFO - Chunk analysis complete
+2025-02-18 10:24:13,557 - main - INFO - Received streaming chunk
+2025-02-18 10:24:14,664 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (159552,)
+2025-02-18 10:24:15,918 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 10:24:15,918 - main - INFO - Chunk analysis complete
+2025-02-18 10:24:15,927 - main - INFO - Received streaming chunk
+2025-02-18 10:24:15,928 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 10:24:16,663 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 10:24:16,663 - main - INFO - Chunk analysis complete
+2025-02-18 10:24:16,672 - main - INFO - Received streaming chunk
+2025-02-18 10:24:16,674 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 10:24:17,412 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 10:24:17,413 - main - INFO - Chunk analysis complete
+2025-02-18 10:24:17,429 - main - INFO - Received streaming chunk
+2025-02-18 10:24:17,430 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 10:24:18,158 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 10:24:18,159 - main - INFO - Chunk analysis complete
