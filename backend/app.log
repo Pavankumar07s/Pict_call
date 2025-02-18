@@ -181,3 +181,23 @@ fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening 
 2025-02-18 10:24:17,430 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
 2025-02-18 10:24:18,158 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
 2025-02-18 10:24:18,159 - main - INFO - Chunk analysis complete
+2025-02-18 10:27:31,801 - main - INFO - Received audio file: test.wav
+2025-02-18 10:27:31,801 - main - INFO - Starting to process file: test.wav
+2025-02-18 10:27:31,802 - main - INFO - Audio loaded successfully. Sample rate: 48000, Shape: (144000,)
+2025-02-18 10:27:32,473 - main - INFO - Transcription complete: 
+2025-02-18 10:27:32,474 - main - INFO - Analysis complete
+2025-02-18 10:28:53,785 - main - INFO - Received audio file: normal.wav
+2025-02-18 10:28:53,785 - main - INFO - Starting to process file: normal.wav
+2025-02-18 10:28:53,786 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (130752,)
+2025-02-18 10:28:54,726 - main - INFO - Transcription complete:  Hello, this is regarding your recent purchase. How can I help you?
+2025-02-18 10:28:54,727 - main - INFO - Analysis complete
+2025-02-18 10:28:54,734 - main - INFO - Received audio file: otp_scam.wav
+2025-02-18 10:28:54,734 - main - INFO - Starting to process file: otp_scam.wav
+2025-02-18 10:28:54,735 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (112896,)
+2025-02-18 10:28:55,474 - main - INFO - Transcription complete:  Please provide your OTP number that you received on your mobile.
+2025-02-18 10:28:55,474 - main - INFO - Analysis complete
+2025-02-18 10:28:55,487 - main - INFO - Received audio file: remote_access.wav
+2025-02-18 10:28:55,488 - main - INFO - Starting to process file: remote_access.wav
+2025-02-18 10:28:55,488 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (115776,)
+2025-02-18 10:28:56,240 - main - INFO - Transcription complete:  You need to install any desk on your computer so I can help you.
+2025-02-18 10:28:56,240 - main - INFO - Analysis complete
