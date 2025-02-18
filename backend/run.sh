@@ -1,2 +1,2 @@
 source venv/bin/activate
-uvicorn main:app --reload --host 192.168.244.184 --port 3000
+uvicorn main:app --reload --host 192.168.244.227 --port 3000

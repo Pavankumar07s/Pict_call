@@ -2,7 +2,7 @@ import { CallAnalysisType } from '@/types';
 import { Platform } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http:/192.168.244.184:3000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http:/192.168.244.227:3000';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 

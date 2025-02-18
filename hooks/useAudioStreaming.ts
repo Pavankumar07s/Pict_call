@@ -12,67 +12,78 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
   const [processingChunk, setProcessingChunk] = useState(false);
   const lastProcessedTime = useRef(0);
 
-  const createNewRecording = async () => {
-    const newRecording = new Audio.Recording();
-    await newRecording.prepareToRecordAsync({
-      android: {
-        extension: '.wav',
-        outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_DEFAULT,
-        audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_DEFAULT,
-        sampleRate: 44100,
-        numberOfChannels: 1,
-        bitRate: 128000,
-      },
-      ios: {
-        extension: '.wav',
-        audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_HIGH,
-        sampleRate: 44100,
-        numberOfChannels: 1,
-        bitRate: 128000,
-        linearPCMBitDepth: 16,
-        linearPCMIsBigEndian: false,
-        linearPCMIsFloat: false,
-      },
-    });
-
-    newRecording.setOnRecordingStatusUpdate(async (status) => {
-      if (!status.isRecording || processingChunk) return;
-
-      const currentTime = status.durationMillis;
-      if (currentTime - lastProcessedTime.current >= CHUNK_DURATION) {
-        setProcessingChunk(true);
-        console.log('Processing new chunk at:', currentTime);
-
-        try {
-          // Stop and save current recording
-          await newRecording.stopAndUnloadAsync();
-          const uri = newRecording.getURI();
-
-          if (uri) {
-            // Process the chunk
-            console.log('Processing chunk from URI:', uri);
-            const base64Content = await FileSystem.readAsStringAsync(uri, {
-              encoding: FileSystem.EncodingType.Base64
-            });
-            await analyzeStreamingAudio(base64Content, onAnalysisUpdate);
-          }
-
-          // Start new recording if still streaming
-          if (isStreaming) {
-            await newRecording.prepareToRecordAsync();
-            await newRecording.startAsync();
-            lastProcessedTime.current = currentTime;
-          }
-        } catch (err) {
-          console.error('Error processing chunk:', err);
-        } finally {
-          setProcessingChunk(false);
-        }
-      }
-    });
-
-    return newRecording;
+  const startNewRecording = async () => {
+    try {
+      const newRecording = new Audio.Recording();
+      await newRecording.prepareToRecordAsync({
+        android: {
+          extension: '.wav',
+          outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_DEFAULT,
+          audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_DEFAULT,
+          sampleRate: 44100,
+          numberOfChannels: 1,
+          bitRate: 128000,
+        },
+        ios: {
+          extension: '.wav',
+          audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_HIGH,
+          sampleRate: 44100,
+          numberOfChannels: 1,
+          bitRate: 128000,
+          linearPCMBitDepth: 16,
+          linearPCMIsBigEndian: false,
+          linearPCMIsFloat: false,
+        },
+      });
+      
+      await newRecording.startAsync();
+      recordingRef.current = newRecording;
+      return newRecording;
+    } catch (err) {
+      console.error('Failed to start new recording:', err);
+      throw err;
+    }
   };
+
+  const processRecording = async () => {
+    if (!recordingRef.current || !isStreaming || processingChunk) return;
+    
+    setProcessingChunk(true);
+    const currentRecording = recordingRef.current;
+    
+    try {
+      await currentRecording.stopAndUnloadAsync();
+      const uri = currentRecording.getURI();
+      
+      if (uri) {
+        console.log('Processing chunk from URI:', uri);
+        const base64Content = await FileSystem.readAsStringAsync(uri, {
+          encoding: FileSystem.EncodingType.Base64
+        });
+        await analyzeStreamingAudio(base64Content, onAnalysisUpdate);
+      }
+
+      // Start a new recording cycle
+      if (isStreaming) {
+        await startNewRecording();
+      }
+    } catch (err) {
+      console.error('Error processing recording:', err);
+    } finally {
+      setProcessingChunk(false);
+    }
+  };
+
+  // Set up interval for chunk processing
+  useEffect(() => {
+    if (!isStreaming) return;
+
+    const interval = setInterval(() => {
+      processRecording();
+    }, CHUNK_DURATION);
+
+    return () => clearInterval(interval);
+  }, [isStreaming]);
 
   const startStreaming = useCallback(async () => {
     try {
@@ -85,11 +96,8 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
         staysActiveInBackground: true,
       });
 
-      lastProcessedTime.current = 0;
       setIsStreaming(true);
-      const recording = await createNewRecording();
-      recordingRef.current = recording;
-      await recording.startAsync();
+      await startNewRecording();
       console.log('Started streaming');
     } catch (err) {
       console.error('Failed to start streaming:', err);
@@ -115,6 +123,7 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
     }
   }, []);
 
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (recordingRef.current) {
