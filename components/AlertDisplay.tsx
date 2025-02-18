@@ -42,10 +42,13 @@ export function AlertDisplay({ analysis, onDismiss }: Props) {
                 size={20}
                 color={Colors.danger}
               />
-              <ThemedText>{reason}</ThemedText>
+              <ThemedText style={styles.reasonText}>{reason}</ThemedText>
             </View>
           ))}
 
+          <ThemedText style={styles.confidenceText}>
+              Confidence: {(analysis.confidence * 100).toFixed(1)}%
+            </ThemedText>
           <View style={styles.confidenceBar}>
             <View
               style={[
@@ -53,9 +56,7 @@ export function AlertDisplay({ analysis, onDismiss }: Props) {
                 { width: `${analysis.confidence * 100}%` },
               ]}
             />
-            <ThemedText style={styles.confidenceText}>
-              Confidence: {(analysis.confidence * 100).toFixed(1)}%
-            </ThemedText>
+            
           </View>
         </View>
       )}
@@ -105,7 +106,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
+    color: Colors.danger,
   },
+  reasonText:{
+    color:"Black",
+    fontSize: 16,
+  },
+
   confidenceBar: {
     height: 4,
     backgroundColor: "#E5E5EA",
@@ -123,5 +130,6 @@ const styles = StyleSheet.create({
   confidenceText: {
     marginTop: 8,
     textAlign: "center",
+    color:"Black"
   },
 });

@@ -201,3 +201,135 @@ fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening 
 2025-02-18 10:28:55,488 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (115776,)
 2025-02-18 10:28:56,240 - main - INFO - Transcription complete:  You need to install any desk on your computer so I can help you.
 2025-02-18 10:28:56,240 - main - INFO - Analysis complete
+2025-02-18 20:12:51,560 - main - INFO - Received streaming chunk
+2025-02-18 20:12:53,129 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (159552,)
+2025-02-18 20:12:55,003 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 20:12:55,003 - main - INFO - Chunk analysis complete
+2025-02-18 20:12:55,013 - main - INFO - Received streaming chunk
+2025-02-18 20:12:55,014 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 20:12:55,840 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 20:12:55,842 - main - INFO - Chunk analysis complete
+2025-02-18 20:12:55,863 - main - INFO - Received streaming chunk
+2025-02-18 20:12:55,864 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 20:12:56,599 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 20:12:56,599 - main - INFO - Chunk analysis complete
+2025-02-18 20:12:56,620 - main - INFO - Received streaming chunk
+2025-02-18 20:12:56,624 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 20:12:57,330 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 20:12:57,330 - main - INFO - Chunk analysis complete
+2025-02-18 20:24:25,822 - main - INFO - Received audio file: normal.wav
+2025-02-18 20:24:25,824 - main - INFO - Starting to process file: normal.wav
+2025-02-18 20:24:25,838 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (130752,)
+2025-02-18 20:24:26,939 - main - INFO - Transcription complete:  Hello, this is regarding your recent purchase. How can I help you?
+2025-02-18 20:24:26,940 - main - INFO - Analysis complete
+2025-02-18 20:24:26,952 - main - INFO - Received audio file: otp_scam.wav
+2025-02-18 20:24:26,952 - main - INFO - Starting to process file: otp_scam.wav
+2025-02-18 20:24:26,953 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (112896,)
+2025-02-18 20:24:27,750 - main - INFO - Transcription complete:  Please provide your OTP number that you received on your mobile.
+2025-02-18 20:24:27,750 - main - INFO - Analysis complete
+2025-02-18 20:24:27,768 - main - INFO - Received audio file: remote_access.wav
+2025-02-18 20:24:27,768 - main - INFO - Starting to process file: remote_access.wav
+2025-02-18 20:24:27,769 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (115776,)
+2025-02-18 20:24:28,523 - main - INFO - Transcription complete:  You need to install any desk on your computer so I can help you.
+2025-02-18 20:24:28,525 - main - INFO - Analysis complete
+2025-02-18 20:26:58,608 - main - INFO - Received audio file: test.wav
+2025-02-18 20:26:58,608 - main - INFO - Starting to process file: test.wav
+2025-02-18 20:26:58,622 - main - INFO - Audio loaded successfully. Sample rate: 48000, Shape: (144000,)
+2025-02-18 20:26:59,640 - main - INFO - Transcription complete: 
+2025-02-18 20:26:59,640 - main - INFO - Analysis complete
+2025-02-18 20:27:47,490 - main - INFO - Received audio file: suspicious.wav
+2025-02-18 20:27:47,490 - main - INFO - Starting to process file: suspicious.wav
+2025-02-18 20:27:47,506 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (207936,)
+2025-02-18 20:27:48,502 - main - INFO - Transcription complete:  Warning. Please do not share your OTP or install remote access applications. This call appears suspicious.
+2025-02-18 20:27:48,503 - main - INFO - Analysis complete
+2025-02-18 20:48:41,849 - main - INFO - Received audio file: recording.wav
+2025-02-18 20:48:41,851 - main - INFO - Starting to process file: recording.wav
+2025-02-18 20:48:41,860 - main - ERROR - Audio load error: Error opening <_io.BytesIO object at 0x75084035fa60>: Format not recognised.
+2025-02-18 20:48:41,863 - main - ERROR - Error processing complete audio: 400: Failed to read audio file: Error opening <_io.BytesIO object at 0x75084035fa60>: Format not recognised.
+2025-02-18 20:48:41,863 - main - ERROR - Full traceback:
+Traceback (most recent call last):
+  File "/home/pavan/Desktop/Everything/pict_call/backend/main.py", line 121, in process_complete_audio
+    audio_array, sr = librosa.load(io.BytesIO(audio_data), sr=None)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pavan/Desktop/Everything/pict_call/backend/venv/lib/python3.12/site-packages/librosa/core/audio.py", line 186, in load
+    raise exc
+  File "/home/pavan/Desktop/Everything/pict_call/backend/venv/lib/python3.12/site-packages/librosa/core/audio.py", line 176, in load
+    y, sr_native = __soundfile_load(path, offset, duration, dtype)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pavan/Desktop/Everything/pict_call/backend/venv/lib/python3.12/site-packages/librosa/core/audio.py", line 209, in __soundfile_load
+    context = sf.SoundFile(path)
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/pavan/Desktop/Everything/pict_call/backend/venv/lib/python3.12/site-packages/soundfile.py", line 690, in __init__
+    self._file = self._open(file, mode_int, closefd)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pavan/Desktop/Everything/pict_call/backend/venv/lib/python3.12/site-packages/soundfile.py", line 1265, in _open
+    raise LibsndfileError(err, prefix="Error opening {0!r}: ".format(self.name))
+soundfile.LibsndfileError: Error opening <_io.BytesIO object at 0x75084035fa60>: Format not recognised.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pavan/Desktop/Everything/pict_call/backend/main.py", line 125, in process_complete_audio
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Failed to read audio file: Error opening <_io.BytesIO object at 0x75084035fa60>: Format not recognised.
+2025-02-18 20:55:34,377 - main - INFO - Received audio file: normal.wav
+2025-02-18 20:55:34,377 - main - INFO - Starting to process file: normal.wav
+2025-02-18 20:55:36,200 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (130752,)
+2025-02-18 20:55:37,790 - main - INFO - Transcription complete:  Hello, this is regarding your recent purchase. How can I help you?
+2025-02-18 20:55:37,790 - main - INFO - Analysis complete
+2025-02-18 20:55:37,844 - main - INFO - Received audio file: otp_scam.wav
+2025-02-18 20:55:37,844 - main - INFO - Starting to process file: otp_scam.wav
+2025-02-18 20:55:37,845 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (112896,)
+2025-02-18 20:55:38,777 - main - INFO - Transcription complete:  Please provide your OTP number that you received on your mobile.
+2025-02-18 20:55:38,777 - main - INFO - Analysis complete
+2025-02-18 20:55:38,792 - main - INFO - Received audio file: remote_access.wav
+2025-02-18 20:55:38,792 - main - INFO - Starting to process file: remote_access.wav
+2025-02-18 20:55:38,793 - main - INFO - Audio loaded successfully. Sample rate: 24000, Shape: (115776,)
+2025-02-18 20:55:39,558 - main - INFO - Transcription complete:  You need to install any desk on your computer so I can help you.
+2025-02-18 20:55:39,568 - main - INFO - Analysis complete
+2025-02-18 20:56:08,053 - main - INFO - Received streaming chunk
+2025-02-18 20:56:08,062 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (158976,)
+2025-02-18 20:56:08,850 - main - INFO - Transcription complete:  First share your OTP, then install any desk so I can help you with your bank account.
+2025-02-18 20:56:08,851 - main - INFO - Chunk analysis complete
+2025-02-18 20:56:08,869 - main - INFO - Received streaming chunk
+2025-02-18 20:56:08,870 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (134208,)
+2025-02-18 20:56:09,563 - main - INFO - Transcription complete:  Hello, I'm calling about your recent purchase. How was your experience?
+2025-02-18 20:56:09,564 - main - INFO - Chunk analysis complete
+2025-02-18 20:56:09,580 - main - INFO - Received streaming chunk
+2025-02-18 20:56:09,580 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (114624,)
+2025-02-18 20:56:10,276 - main - INFO - Transcription complete:  Please share your OTP number that you just received on your phone.
+2025-02-18 20:56:10,276 - main - INFO - Chunk analysis complete
+2025-02-18 20:56:10,285 - main - INFO - Received streaming chunk
+2025-02-18 20:56:10,286 - main - INFO - Audio chunk loaded. Sample rate: 24000, Shape: (143424,)
+2025-02-18 20:56:11,015 - main - INFO - Transcription complete:  You need to install any desk or team viewer for remote access to fix your computer.
+2025-02-18 20:56:11,016 - main - INFO - Chunk analysis complete
+2025-02-18 21:01:14,792 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:01:14,793 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:01:14,796 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:01:40,469 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (290178,)
+2025-02-18 21:01:41,419 - main - INFO - Transcription complete:  123 123 please provide your OTP for the verification process please verify your property.
+2025-02-18 21:01:41,419 - main - INFO - Analysis complete
+2025-02-18 21:02:00,078 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:02:00,078 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:02:00,078 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:02:05,024 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (231966,)
+2025-02-18 21:02:05,826 - main - INFO - Transcription complete:  Hey friends, what's about your new dress? Can I get for some rupees?
+2025-02-18 21:02:05,826 - main - INFO - Analysis complete
+2025-02-18 21:02:35,852 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:02:35,861 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:02:35,862 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:02:42,556 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (660618,)
+2025-02-18 21:02:43,649 - main - INFO - Transcription complete:  Ok, let's go. Asterisns sir, your Adharka details are not good for now. You have to provide your bank details and your CV so that we can update your account.
+2025-02-18 21:02:43,650 - main - INFO - Analysis complete
+2025-02-18 21:02:55,940 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:02:55,940 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:02:55,941 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:02:59,409 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (218736,)
+2025-02-18 21:03:00,151 - main - INFO - Transcription complete:  Can you provide your card information so that we can update your aard card?
+2025-02-18 21:03:00,151 - main - INFO - Analysis complete
+2025-02-18 21:03:10,141 - main - INFO - Received audio file: recording.wav
+2025-02-18 21:03:10,141 - main - INFO - Starting to process file: recording.wav
+2025-02-18 21:03:10,141 - main - INFO - Failed to load as WAV, trying M4A...
+2025-02-18 21:03:15,108 - main - INFO - Audio loaded successfully. Sample rate: 44100, Shape: (163170,)
+2025-02-18 21:03:15,845 - main - INFO - Transcription complete:  OTP OTP 12 OTP OTP
+2025-02-18 21:03:15,855 - main - INFO - Analysis complete

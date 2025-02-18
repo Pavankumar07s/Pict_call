@@ -2,7 +2,7 @@ import { CallAnalysisType } from '@/types';
 import { Platform } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.126.64:3000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.244.23:3000';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 
@@ -10,10 +10,14 @@ async function retryOperation(operation: () => Promise<any>, retries = MAX_RETRI
   try {
     return await operation();
   } catch (error) {
+    console.error(`Operation failed (${MAX_RETRIES - retries + 1}/${MAX_RETRIES}):`, error);
+    
     if (retries > 0) {
+      console.log(`Retrying in ${RETRY_DELAY}ms...`);
       await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
       return retryOperation(operation, retries - 1);
     }
+    
     throw error;
   }
 }
@@ -21,40 +25,38 @@ async function retryOperation(operation: () => Promise<any>, retries = MAX_RETRI
 export async function analyzeAudio(audioUri: string): Promise<CallAnalysisType> {
   try {
     console.log('Analyzing audio at URI:', audioUri);
-    const formData = new FormData();
-    
-    // Get the file extension from the URI
-    const fileName = audioUri.split('/').pop() || 'recording.wav';
-    const extension = fileName.split('.').pop()?.toLowerCase();
-    
-    console.log('File format:', extension);
-
-    // Create a blob with the correct MIME type
-    const mimeType = extension === 'wav' ? 'audio/wav' : 'audio/m4a';
     
     // Read the file as base64
-    const fileContent = await FileSystem.readAsStringAsync(audioUri, {
+    const base64Audio = await FileSystem.readAsStringAsync(audioUri, {
       encoding: FileSystem.EncodingType.Base64
     });
 
-    // Create a Blob with the correct mime type
-    const blob = await fetch(`data:${mimeType};base64,${fileContent}`).then(r => r.blob());
+    // Create form data
+    const formData = new FormData();
     
-    // Append with .wav extension for backend compatibility
-    formData.append('file', blob, 'recording.wav');
+    // Append with original file info but force WAV mime type
+    formData.append('file', {
+      uri: audioUri,
+      type: 'audio/wav',
+      name: 'recording.wav',
+      data: base64Audio
+    } as any);
 
     console.log('Sending request to:', `${API_URL}/analyze`);
+
     const response = await retryOperation(() =>
       fetch(`${API_URL}/analyze`, {
         method: 'POST',
         body: formData,
         headers: {
           'Accept': 'application/json',
-        },
+        }
       })
     );
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Server error response:', errorText);
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
@@ -63,12 +65,7 @@ export async function analyzeAudio(audioUri: string): Promise<CallAnalysisType> 
     return result;
   } catch (error) {
     console.error('Error analyzing audio:', error);
-    return {
-      suspicious: false,
-      confidence: 0,
-      reasons: [`Analysis failed: ${(error as Error).message}`],
-      timestamps: []
-    };
+    throw error;
   }
 }
 
@@ -97,6 +94,7 @@ export async function analyzeStreamingAudio(
     }
 
     const result = await response.json();
+    console.log('Streaming analysis result:', result);
     onAnalysisUpdate(result);
   } catch (error) {
     console.error('Error analyzing audio stream:', error);

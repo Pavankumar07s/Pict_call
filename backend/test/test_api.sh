@@ -59,7 +59,7 @@ for file in *.wav; do
     curl -X POST \
          -H "Content-Type: multipart/form-data" \
          -F "file=@${file};type=audio/wav" \
-         http://192.168.126.97:3000/analyze
+         http://192.168.244.23:3000/analyze
     echo -e "\n"
 done
 

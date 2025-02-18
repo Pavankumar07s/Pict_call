@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { StyleSheet, TouchableOpacity, View, Alert, Platform } from 'react-native';
 import { Audio } from 'expo-av';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -62,12 +62,8 @@ export function CallRecorder({
           linearPCMIsBigEndian: false,
           linearPCMIsFloat: false,
         },
-        web: {
-          mimeType: 'audio/wav',
-          bitsPerSecond: 128000,
-        }
       });
-      
+
       setRecording(recording);
       onRecordingStart();
       startTimer();
@@ -83,17 +79,31 @@ export function CallRecorder({
     try {
       await recording.stopAndUnloadAsync();
       const uri = recording.getURI();
+      console.log('Recording URI:', uri);
+      
       setRecording(null);
-      setLastRecordingUri(uri);
       onRecordingStop();
       stopTimer();
 
       if (uri) {
-        const analysis = await analyzeAudio(uri);
-        onAnalysisReceived(analysis);
+        try {
+          // Keep the file:// prefix for both platforms
+          setLastRecordingUri(uri);
+          
+          const analysis = await analyzeAudio(uri);
+          console.log('Analysis result:', analysis);
+          onAnalysisReceived(analysis);
+        } catch (analysisError) {
+          console.error('Analysis failed:', analysisError);
+          Alert.alert(
+            'Analysis Error',
+            'Failed to analyze recording. Please try again.'
+          );
+        }
       }
     } catch (err) {
-      console.error('Failed to stop recording', err);
+      console.error('Failed to stop recording:', err);
+      Alert.alert('Error', 'Failed to stop recording');
     }
   }, [recording, onRecordingStop, stopTimer, onAnalysisReceived]);
 
@@ -106,30 +116,60 @@ export function CallRecorder({
           await sound.pauseAsync();
           setIsPlaying(false);
         } else {
-          await sound.playAsync();
+          await sound.playFromPositionAsync(0);
           setIsPlaying(true);
         }
       } else {
+        // Unload any existing sound first
+        if (sound) {
+          await sound.unloadAsync();
+        }
+
+        // Create new sound object with the correct URI format
+        const uri = Platform.OS === 'android' 
+          ? `file://${lastRecordingUri}`
+          : lastRecordingUri;
+
+        console.log('Loading sound from URI:', uri);
+        
         const { sound: newSound } = await Audio.Sound.createAsync(
-          { uri: lastRecordingUri },
-          { shouldPlay: true }
+          { uri },
+          { 
+            shouldPlay: true,
+            positionMillis: 0,
+            progressUpdateIntervalMillis: 100,
+            androidImplementation: 'MediaPlayer' // Use MediaPlayer on Android
+          }
         );
+
         setSound(newSound);
         setIsPlaying(true);
 
+        // Add proper cleanup when playback ends
         newSound.setOnPlaybackStatusUpdate(status => {
-          if (status.isLoaded && !status.isPlaying && !status.didJustFinish) {
-            setIsPlaying(false);
-          }
+          if (!status.isLoaded) return;
+          
           if (status.didJustFinish) {
             setIsPlaying(false);
+            newSound.unloadAsync();
+            setSound(null);
           }
         });
       }
     } catch (err) {
-      console.error('Failed to play recording', err);
+      console.error('Failed to play recording:', err);
+      Alert.alert('Playback Error', 'Failed to play recording');
     }
   }, [lastRecordingUri, sound, isPlaying]);
+
+  // Add cleanup when component unmounts
+  useEffect(() => {
+    return () => {
+      if (sound) {
+        sound.unloadAsync();
+      }
+    };
+  }, [sound]);
 
   const saveRecording = useCallback(async () => {
     if (!lastRecordingUri) return;

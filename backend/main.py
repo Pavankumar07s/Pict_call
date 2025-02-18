@@ -15,6 +15,8 @@ from fastapi.responses import JSONResponse
 import whisper
 from pathlib import Path
 import tempfile
+import subprocess
+import os
 
 app = FastAPI()
 
@@ -118,43 +120,74 @@ async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
         audio_data = await file.read()
         
         try:
-            audio_array, sr = librosa.load(io.BytesIO(audio_data), sr=None)
+            # Try loading with different formats
+            audio_array = None
+            sr = None
+            
+            try:
+                # Try WAV first
+                audio_array, sr = librosa.load(io.BytesIO(audio_data), sr=None)
+            except:
+                logger.info("Failed to load as WAV, trying M4A...")
+                try:
+                    # Try M4A/AAC
+                    with tempfile.NamedTemporaryFile(suffix='.m4a', delete=False) as temp_m4a:
+                        temp_m4a.write(audio_data)
+                        temp_m4a.flush()
+                        
+                        # Convert to WAV using ffmpeg
+                        temp_wav = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+                        subprocess.run(['ffmpeg', '-i', temp_m4a.name, '-acodec', 'pcm_s16le', '-ar', '44100', temp_wav.name])
+                        
+                        # Load the converted WAV
+                        audio_array, sr = librosa.load(temp_wav.name, sr=None)
+                        
+                        # Cleanup
+                        os.unlink(temp_m4a.name)
+                        os.unlink(temp_wav.name)
+                except Exception as conv_error:
+                    logger.error(f"Conversion error: {str(conv_error)}")
+                    raise
+            
+            if audio_array is None:
+                raise Exception("Failed to load audio in any format")
+                
             logger.info(f"Audio loaded successfully. Sample rate: {sr}, Shape: {audio_array.shape}")
+            
+            # Continue with transcription and analysis...
+            transcription = await transcribe_audio(audio_array, sr)
+            
+            # Rest of your analysis code...
+            suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
+            timestamps = []
+            
+            # Simple timestamp generation (you might want to improve this)
+            words = transcription.split()
+            current_time = 0
+            for word in words:
+                if any(keyword in word.lower() for keyword in suspicious_keywords):
+                    timestamps.append({
+                        "start": current_time,
+                        "end": current_time + 2,  # Assuming each word takes ~2 seconds
+                        "text": word,
+                        "type": "otp" if "otp" in word.lower() else "remote_access"
+                    })
+                current_time += 2
+            
+            logger.info("Analysis complete")
+            return AnalysisResponse(
+                suspicious=len(timestamps) > 0,
+                confidence=0.92 if len(timestamps) > 0 else 0.15,
+                reasons=[f"Detected suspicious content in transcription: '{transcription}'"] if timestamps else [],
+                timestamps=timestamps
+            )
+            
         except Exception as load_error:
             logger.error(f"Audio load error: {str(load_error)}")
             raise HTTPException(
                 status_code=400, 
                 detail=f"Failed to read audio file: {str(load_error)}"
             )
-
-        # Transcribe audio
-        transcription = await transcribe_audio(audio_array, sr)
-        print(transcription)
-        
-        # Analyze transcription for suspicious content
-        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote"]
-        timestamps = []
-        
-        # Simple timestamp generation (you might want to improve this)
-        words = transcription.split()
-        current_time = 0
-        for word in words:
-            if any(keyword in word.lower() for keyword in suspicious_keywords):
-                timestamps.append({
-                    "start": current_time,
-                    "end": current_time + 2,  # Assuming each word takes ~2 seconds
-                    "text": word,
-                    "type": "otp" if "otp" in word.lower() else "remote_access"
-                })
-            current_time += 2
-        
-        logger.info("Analysis complete")
-        return AnalysisResponse(
-            suspicious=len(timestamps) > 0,
-            confidence=0.92 if len(timestamps) > 0 else 0.15,
-            reasons=[f"Detected suspicious content in transcription: '{transcription}'"] if timestamps else [],
-            timestamps=timestamps
-        )
 
     except Exception as e:
         logger.error(f"Error processing complete audio: {str(e)}")
