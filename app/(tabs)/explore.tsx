@@ -166,19 +166,23 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    paddingBottom: Platform.OS === 'android' ? 25 : 0,
   },
   container: {
     flex: 1,
+    paddingVertical: 16,
   },
   headerContainer: {
     padding: 24,
     paddingBottom: 16,
+    paddingTop: 16,
   },
   pageTitle: {
     fontSize: 36,
     textAlign: 'center',
     marginBottom: 8,
     fontWeight: '800',
+    padding: 16,
   },
   subtitle: {
     textAlign: 'center',
