@@ -2,7 +2,7 @@ import { CallAnalysisType } from '@/types';
 import { Platform } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http:/192.168.244.227:3000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http:/192.168.244.71:3000';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 
@@ -154,7 +154,7 @@ export class StreamingAnalyzer {
       // Clear existing connection
       this.disconnect();
 
-      const wsUrl = process.env.EXPO_PUBLIC_API_URL?.replace('http', 'ws') || 'ws://192.168.244.85:3000';
+      const wsUrl = process.env.EXPO_PUBLIC_API_URL?.replace('http', 'ws') || 'ws://192.168.244.71:3000';
       this.ws = new WebSocket(`${wsUrl}/ws`);
 
       this.ws.onopen = () => {

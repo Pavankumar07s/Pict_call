@@ -8,7 +8,7 @@ import wave
 import numpy as np
 
 async def test_websocket_connection(audio_path: str):
-    uri = "ws://192.168.244.85:3000/ws"
+    uri = "ws://192.168.244.71:3000/ws"
     try:
         async with websockets.connect(uri) as websocket:
             print(f"Connected to {uri}")

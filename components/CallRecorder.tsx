@@ -37,11 +37,20 @@ export function CallRecorder({
         return;
       }
 
+      // Reset audio system
+      await Audio.setIsEnabledAsync(false);
+      await Audio.setIsEnabledAsync(true);
+      
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: true,
         playsInSilentModeIOS: true,
         staysActiveInBackground: true,
+        shouldDuckAndroid: false,
+        playThroughEarpieceAndroid: false,
       });
+
+      // Add delay before starting new recording
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       const { recording } = await Audio.Recording.createAsync({
         android: {
@@ -79,26 +88,29 @@ export function CallRecorder({
     try {
       await recording.stopAndUnloadAsync();
       const uri = recording.getURI();
-      console.log('Recording URI:', uri);
       
       setRecording(null);
       onRecordingStop();
       stopTimer();
 
+      // Reset audio mode
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        playsInSilentModeIOS: false,
+        staysActiveInBackground: false,
+      });
+      
+      // Add longer delay for cleanup
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       if (uri) {
         try {
-          // Keep the file:// prefix for both platforms
-          setLastRecordingUri(uri);
-          
           const analysis = await analyzeAudio(uri);
           console.log('Analysis result:', analysis);
           onAnalysisReceived(analysis);
         } catch (analysisError) {
           console.error('Analysis failed:', analysisError);
-          Alert.alert(
-            'Analysis Error',
-            'Failed to analyze recording. Please try again.'
-          );
+          Alert.alert('Analysis Error', 'Failed to analyze recording');
         }
       }
     } catch (err) {

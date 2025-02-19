@@ -12,23 +12,37 @@ interface Props {
 
 export function StreamingRecorder({ onAnalysisReceived }: Props) {
   const [isEnabled, setIsEnabled] = useState(false);
-  const { isStreaming, startStreaming, stopStreaming } = useAudioStreaming((analysis) => {
-    console.log('Streaming analysis received:', analysis);
-    onAnalysisReceived(analysis);
-  });
+  const { isStreaming, startStreaming, stopStreaming, error } = useAudioStreaming(
+    useCallback((analysis) => {
+      onAnalysisReceived(analysis);
+      
+      if (analysis.suspicious) {
+        console.log('⚠️ Suspicious content detected:', {
+          confidence: analysis.confidence,
+          reasons: analysis.reasons,
+          keywords: analysis.detected_keywords
+        });
+      }
+
+      if (analysis.history?.length) {
+        console.log('📜 Analysis history:', analysis.history);
+      }
+    }, [onAnalysisReceived])
+  );
 
   const toggleSwitch = useCallback(async () => {
     try {
-      console.log('Toggling streaming:', !isEnabled);
       if (!isEnabled) {
+        console.log('🎙️ Starting streaming...');
         await startStreaming();
         setIsEnabled(true);
       } else {
+        console.log('⏹️ Stopping streaming...');
         await stopStreaming();
         setIsEnabled(false);
       }
     } catch (err) {
-      console.error('Failed to toggle streaming:', err);
+      console.error('❌ Failed to toggle streaming:', err);
       Alert.alert('Error', 'Failed to toggle streaming');
       setIsEnabled(false);
     }
