@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Request
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
@@ -17,6 +17,10 @@ from pathlib import Path
 import tempfile
 import subprocess
 import os
+import base64
+import json
+import websockets
+import asyncio  
 
 app = FastAPI()
 
@@ -25,7 +29,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # In production, replace with specific origins
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"]
 )
@@ -62,100 +66,143 @@ model = whisper.load_model("base")
 
 async def transcribe_audio(audio_array: np.ndarray, sr: int) -> str:
     try:
+        # Ensure audio data is valid
+        if audio_array.size == 0:
+            raise ValueError("Empty audio data")
+            
         # Create a temporary WAV file
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
-            sf.write(temp_file.name, audio_array, sr)
-            
-            # Transcribe using Whisper
-            result = model.transcribe(temp_file.name)
-            transcription = result["text"]
-            
-            logger.info(f"Transcription complete: {transcription}")
-            return transcription
+            try:
+                sf.write(temp_file.name, audio_array, sr, format='WAV')
+                
+                # Transcribe using Whisper
+                result = model.transcribe(temp_file.name)
+                transcription = result["text"]
+                
+                logger.info(f"Transcription complete: {transcription}")
+                return transcription
+            finally:
+                try:
+                    os.unlink(temp_file.name)
+                except:
+                    pass
     except Exception as e:
         logger.error(f"Transcription error: {str(e)}")
         raise
-    finally:
-        # Clean up temporary file
-        try:
-            Path(temp_file.name).unlink()
-        except:
-            pass
 
 # Audio processing functions
 async def process_audio_chunk(audio_chunk: bytes) -> StreamAnalysisResponse:
+    temp_wav_path = None
+    converted_path = None
+    
     try:
         logger.info("Processing audio chunk")
         
-        # Create temporary files for conversion if needed
+        # Create temporary file with explicit path
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_wav:
+            temp_wav_path = temp_wav.name
+            temp_wav.write(audio_chunk)
+            temp_wav.flush()
+            os.fsync(temp_wav.fileno())
+            
+            # Convert using ffmpeg with more explicit format settings
+            converted_path = temp_wav_path + '_converted.wav'
+            result = subprocess.run([
+                'ffmpeg', 
+                '-y',
+                '-f', 'wav',
+                '-i', temp_wav_path,
+                '-acodec', 'pcm_s16le',
+                '-ar', '16000',
+                '-ac', '1',
+                '-bits_per_raw_sample', '16',
+                converted_path
+            ], capture_output=True, text=True, check=False)
+            
+            if result.returncode != 0:
+                logger.error(f"FFmpeg conversion failed: {result.stderr}")
+                raise ValueError("Audio conversion failed")
+
+            # Try to load audio with soundfile first, then fallback to librosa
             try:
-                # Try loading directly first
-                audio_array, sr = librosa.load(io.BytesIO(audio_chunk), sr=None)
-            except:
-                logger.info("Direct load failed, trying conversion...")
-                # Write the chunk to temporary file
-                temp_wav.write(audio_chunk)
-                temp_wav.flush()
-                
-                # Convert using ffmpeg if needed
-                subprocess.run([
-                    'ffmpeg', 
-                    '-y',
-                    '-i', temp_wav.name,
-                    '-acodec', 'pcm_s16le',
-                    '-ar', '44100',
-                    '-ac', '1',
-                    temp_wav.name + '_converted.wav'
-                ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                
-                # Load the converted audio
-                audio_array, sr = librosa.load(temp_wav.name + '_converted.wav', sr=None)
-                
-                # Cleanup converted file
+                with sf.SoundFile(converted_path) as audio_file:
+                    audio_data = audio_file.read()
+                    sr = audio_file.samplerate
+                    audio_array = np.array(audio_data)
+            except Exception as sf_error:
+                logger.warning(f"SoundFile load failed: {sf_error}, trying librosa...")
                 try:
-                    os.unlink(temp_wav.name + '_converted.wav')
-                except:
-                    pass
+                    audio_array, sr = librosa.load(
+                        converted_path,
+                        sr=16000,
+                        mono=True,
+                        dtype=np.float32
+                    )
+                except Exception as librosa_error:
+                    logger.error(f"Librosa load failed: {librosa_error}")
+                    raise
 
-        logger.info(f"Audio chunk loaded. Sample rate: {sr}, Shape: {audio_array.shape}")
+            if audio_array is None or sr is None:
+                raise ValueError("Failed to load audio data")
 
-        # Transcribe audio
-        transcription = await transcribe_audio(audio_array, sr)
-        logger.info(f"Transcription: {transcription}")
-        
-        # Keyword detection with improved matching
-        suspicious_keywords = ["otp", "anydesk", "teamviewer", "remote", "access", "install"]
-        detected_words = []
-        transcription_lower = transcription.lower()
-        
-        for keyword in suspicious_keywords:
-            if keyword in transcription_lower:
-                detected_words.append(keyword)
-        
-        is_suspicious = len(detected_words) > 0
-        confidence = 0.85 if is_suspicious else 0.15
-        
-        # Generate meaningful reasons
-        reasons = []
-        if is_suspicious:
-            if any(word in ["otp", "code", "number"] for word in detected_words):
-                reasons.append("Potential OTP request detected")
-            if any(word in ["anydesk", "teamviewer", "remote", "access"] for word in detected_words):
-                reasons.append("Remote access software mentioned")
-            if "install" in detected_words:
-                reasons.append("Installation request detected")
-        
-        response = StreamAnalysisResponse(
-            suspicious=is_suspicious,
-            confidence=confidence,
-            reasons=reasons,
-            current_timestamp=datetime.now().timestamp(),
-            detected_keywords=detected_words
-        )
-        
-        logger.info(f"Stream analysis response: {response}")
-        return response
+            # Normalize audio data
+            audio_array = librosa.util.normalize(audio_array)
+            
+            # Process the audio...
+            transcription = await transcribe_audio(audio_array, sr)
+            logger.info(f"Transcription: {transcription}")
+
+            # Rest of your code remains the same...
+            suspicious_keywords = [
+                "otp", 
+                "anydesk", 
+                "teamviewer", 
+                "remote", 
+                "access", 
+                "install",
+                "verification code",
+                "security code",
+                "one-time",
+                "password",
+                "authenticate",
+                "urgent",
+                "emergency",
+                "support team",
+                "technical support"
+            ]
+
+            detected_words = []
+            transcription_lower = transcription.lower()
+            
+            for keyword in suspicious_keywords:
+                if keyword in transcription_lower:
+                    detected_words.append(keyword)
+            
+            is_suspicious = len(detected_words) > 0
+            confidence = 0.85 if is_suspicious else 0.15
+            
+            # Generate meaningful reasons
+            reasons = []
+            if is_suspicious:
+                if any(word in ["otp", "code", "number", "password"] for word in detected_words):
+                    reasons.append("Potential OTP/password request detected")
+                if any(word in ["anydesk", "teamviewer", "remote", "access"] for word in detected_words):
+                    reasons.append("Remote access software mentioned")
+                if "install" in detected_words:
+                    reasons.append("Installation request detected")
+                if any(word in ["urgent", "emergency"] for word in detected_words):
+                    reasons.append("Urgency indicators detected")
+            
+            response = StreamAnalysisResponse(
+                suspicious=is_suspicious,
+                confidence=confidence,
+                reasons=reasons,
+                current_timestamp=datetime.now().timestamp(),
+                detected_keywords=detected_words
+            )
+            
+            logger.info(f"Stream analysis response: {response}")
+            return response
 
     except Exception as e:
         logger.error(f"Error processing audio chunk: {str(e)}")
@@ -165,11 +212,13 @@ async def process_audio_chunk(audio_chunk: bytes) -> StreamAnalysisResponse:
             detail=f"Error processing audio chunk: {str(e)}"
         )
     finally:
-        # Ensure cleanup
-        try:
-            os.unlink(temp_wav.name)
-        except:
-            pass
+        # Clean up temporary files
+        for path in [temp_wav_path, converted_path]:
+            if path and os.path.exists(path):
+                try:
+                    os.unlink(path)
+                except Exception as e:
+                    logger.warning(f"Failed to delete temporary file {path}: {e}")
 
 async def process_complete_audio(file: UploadFile) -> AnalysisResponse:
     try:
@@ -314,6 +363,154 @@ async def analyze_stream(
             status_code=500,
             detail=f"Stream processing failed: {str(e)}"
         )
+
+# Add WebSocket manager
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: List[WebSocket] = []
+
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        self.active_connections.remove(websocket)
+
+manager = ConnectionManager()
+
+# Add WebSocket endpoint
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+    logger.info("New WebSocket connection established")
+    
+    try:
+        while True:
+            try:
+                data = await websocket.receive_text()
+                logger.info("Received audio chunk")
+                
+                try:
+                    audio_bytes = base64.b64decode(data)
+                    
+                    # Create temporary WAV file with proper header
+                    with tempfile.NamedTemporaryFile(suffix='.raw', delete=False) as temp_raw:
+                        temp_raw_path = temp_raw.name
+                        temp_raw.write(audio_bytes)
+                        temp_raw.flush()
+                        os.fsync(temp_raw.fileno())
+
+                        # Convert raw audio to WAV
+                        converted_path = temp_raw_path + '_converted.wav'
+                        result = subprocess.run([
+                            'ffmpeg', 
+                            '-y',
+                            '-f', 's16le',  # Input format is raw 16-bit PCM
+                            '-ar', '24000',  # Match input sample rate
+                            '-ac', '1',      # Mono input
+                            '-i', temp_raw_path,
+                            '-acodec', 'pcm_s16le',
+                            '-ar', '16000',  # Convert to 16kHz
+                            '-ac', '1',
+                            converted_path
+                        ], capture_output=True, text=True, check=False)
+
+                        if result.returncode != 0:
+                            logger.error(f"FFmpeg error: {result.stderr}")
+                            # Try direct loading if conversion fails
+                            try:
+                                audio_array, sr = librosa.load(
+                                    io.BytesIO(audio_bytes),
+                                    sr=16000,
+                                    mono=True
+                                )
+                            except Exception as load_error:
+                                logger.error(f"Direct load failed: {load_error}")
+                                raise ValueError(f"Audio processing failed: {result.stderr}")
+                        else:
+                            # Load the converted audio
+                            try:
+                                audio_array, sr = librosa.load(
+                                    converted_path,
+                                    sr=16000,
+                                    mono=True
+                                )
+                            except Exception as load_error:
+                                logger.error(f"Failed to load converted audio: {load_error}")
+                                raise
+
+                        # Process the audio
+                        transcription = await transcribe_audio(audio_array, sr)
+                        logger.info(f"Transcription: {transcription}")
+
+                        # Check for suspicious content
+                        suspicious_keywords = [
+                            "otp", "anydesk", "teamviewer", "remote", 
+                            "access", "install", "verification code", 
+                            "security code", "one-time", "password",
+                            "authenticate", "urgent", "emergency", 
+                            "support team", "technical support"
+                        ]
+
+                        detected_words = []
+                        transcription_lower = transcription.lower()
+                        
+                        for keyword in suspicious_keywords:
+                            if keyword in transcription_lower:
+                                detected_words.append(keyword)
+                        
+                        is_suspicious = len(detected_words) > 0
+                        confidence = 0.85 if is_suspicious else 0.15
+                        
+                        # Generate reasons
+                        reasons = []
+                        if is_suspicious:
+                            if any(word in ["otp", "code", "number", "password"] for word in detected_words):
+                                reasons.append("Potential OTP/password request detected")
+                            if any(word in ["anydesk", "teamviewer", "remote", "access"] for word in detected_words):
+                                reasons.append("Remote access software mentioned")
+                            if "install" in detected_words:
+                                reasons.append("Installation request detected")
+                            if any(word in ["urgent", "emergency"] for word in detected_words):
+                                reasons.append("Urgency indicators detected")
+
+                        # Send analysis
+                        await websocket.send_json({
+                            "suspicious": is_suspicious,
+                            "confidence": confidence,
+                            "reasons": reasons,
+                            "current_timestamp": datetime.now().timestamp(),
+                            "detected_keywords": detected_words
+                        })
+
+                except Exception as e:
+                    logger.error(f"Processing error: {str(e)}")
+                    await websocket.send_json({
+                        "suspicious": False,
+                        "confidence": 0,
+                        "reasons": [f"Error: {str(e)}"],
+                        "detected_keywords": [],
+                        "current_timestamp": datetime.now().timestamp()
+                    })
+                finally:
+                    # Cleanup temporary files
+                    for path in [temp_raw_path, converted_path]:
+                        if path and os.path.exists(path):
+                            try:
+                                os.unlink(path)
+                            except Exception as e:
+                                logger.warning(f"Failed to delete {path}: {e}")
+                    
+            except WebSocketDisconnect:
+                logger.info("Client disconnected")
+                break
+            except Exception as e:
+                logger.error(f"WebSocket error: {str(e)}")
+                break
+                
+    finally:
+        manager.disconnect(websocket)
+        logger.info("WebSocket connection cleaned up")
 
 # Error handlers
 @app.exception_handler(Exception)

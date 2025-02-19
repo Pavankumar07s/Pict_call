@@ -1,21 +1,41 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
-import { analyzeStreamingAudio } from '@/services/audioAnalysis';
+import { StreamingAnalyzer } from '@/services/StreamingAnalyzer';
 import { CallAnalysisType } from '@/types';
 
-const CHUNK_DURATION = 3000; // 3 seconds chunks
+const CHUNK_DURATION = 2000; // Reduce to 2 seconds for more frequent updates
 
 export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnalysisType>) => void) {
   const [isStreaming, setIsStreaming] = useState(false);
   const recordingRef = useRef<Audio.Recording | null>(null);
-  const [processingChunk, setProcessingChunk] = useState(false);
-  const lastProcessedTime = useRef(0);
+  const analyzerRef = useRef<StreamingAnalyzer | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isInitializing, setIsInitializing] = useState(false);
 
-  const startNewRecording = async () => {
+  const cleanupRecording = async () => {
+    if (recordingRef.current) {
+      try {
+        const recording = recordingRef.current;
+        recordingRef.current = null;
+        if (recording._isDoneRecording) {
+          await recording.stopAndUnloadAsync();
+        }
+      } catch (err) {
+        console.error('Error stopping recording:', err);
+      }
+    }
+  };
+
+  const startRecording = async () => {
+    if (isInitializing) return;
+    setIsInitializing(true);
+
     try {
-      const newRecording = new Audio.Recording();
-      await newRecording.prepareToRecordAsync({
+      await cleanupRecording();
+
+      const recording = new Audio.Recording();
+      await recording.prepareToRecordAsync({
         android: {
           extension: '.wav',
           outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_DEFAULT,
@@ -35,55 +55,46 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
           linearPCMIsFloat: false,
         },
       });
-      
-      await newRecording.startAsync();
-      recordingRef.current = newRecording;
-      return newRecording;
-    } catch (err) {
-      console.error('Failed to start new recording:', err);
-      throw err;
-    }
-  };
 
-  const processRecording = async () => {
-    if (!recordingRef.current || !isStreaming || processingChunk) return;
-    
-    setProcessingChunk(true);
-    const currentRecording = recordingRef.current;
-    
-    try {
-      await currentRecording.stopAndUnloadAsync();
-      const uri = currentRecording.getURI();
-      
-      if (uri) {
-        console.log('Processing chunk from URI:', uri);
-        const base64Content = await FileSystem.readAsStringAsync(uri, {
-          encoding: FileSystem.EncodingType.Base64
-        });
-        await analyzeStreamingAudio(base64Content, onAnalysisUpdate);
-      }
+      recordingRef.current = recording;
 
-      // Start a new recording cycle
-      if (isStreaming) {
-        await startNewRecording();
-      }
+      recording.setOnRecordingStatusUpdate(async (status) => {
+        if (!isStreaming || !recordingRef.current) return;
+
+        if (status.isRecording && status.durationMillis >= CHUNK_DURATION) {
+          try {
+            const currentRecording = recordingRef.current;
+            recordingRef.current = null;
+            
+            await currentRecording.stopAndUnloadAsync();
+            const uri = currentRecording.getURI();
+            
+            if (uri && analyzerRef.current && isStreaming) {
+              const base64Content = await FileSystem.readAsStringAsync(uri, {
+                encoding: FileSystem.EncodingType.Base64
+              });
+              analyzerRef.current.sendAudio(base64Content);
+            }
+
+            if (isStreaming) {
+              await startRecording();
+            }
+          } catch (err) {
+            console.error('Error processing recording chunk:', err);
+            setError('Error processing recording chunk');
+          }
+        }
+      });
+
+      await recording.startAsync();
     } catch (err) {
-      console.error('Error processing recording:', err);
+      console.error('Failed to start recording:', err);
+      setError('Failed to start recording');
+      setIsStreaming(false);
     } finally {
-      setProcessingChunk(false);
+      setIsInitializing(false);
     }
   };
-
-  // Set up interval for chunk processing
-  useEffect(() => {
-    if (!isStreaming) return;
-
-    const interval = setInterval(() => {
-      processRecording();
-    }, CHUNK_DURATION);
-
-    return () => clearInterval(interval);
-  }, [isStreaming]);
 
   const startStreaming = useCallback(async () => {
     try {
@@ -96,40 +107,35 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
         staysActiveInBackground: true,
       });
 
+      analyzerRef.current = new StreamingAnalyzer(
+        onAnalysisUpdate,
+        (error) => setError(error)
+      );
+      analyzerRef.current.connect();
+
       setIsStreaming(true);
-      await startNewRecording();
-      console.log('Started streaming');
+      await startRecording();
     } catch (err) {
       console.error('Failed to start streaming:', err);
+      setError('Failed to start streaming');
       setIsStreaming(false);
     }
-  }, []);
+  }, [onAnalysisUpdate]);
 
   const stopStreaming = useCallback(async () => {
-    try {
-      setIsStreaming(false);
-      if (recordingRef.current) {
-        const recording = recordingRef.current;
-        recordingRef.current = null;
-        try {
-          await recording.stopAndUnloadAsync();
-        } catch (err) {
-          console.log('Recording already stopped:', err);
-        }
-      }
-      console.log('Stopped streaming');
-    } catch (err) {
-      console.error('Failed to stop streaming:', err);
+    setIsStreaming(false);
+    
+    if (analyzerRef.current) {
+      analyzerRef.current.disconnect();
+      analyzerRef.current = null;
     }
+
+    await cleanupRecording();
   }, []);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
-      if (recordingRef.current) {
-        recordingRef.current.stopAndUnloadAsync();
-        recordingRef.current = null;
-      }
+      stopStreaming();
     };
   }, []);
 
@@ -137,5 +143,6 @@ export function useAudioStreaming(onAnalysisUpdate: (analysis: Partial<CallAnaly
     isStreaming,
     startStreaming,
     stopStreaming,
+    error,
   };
 }

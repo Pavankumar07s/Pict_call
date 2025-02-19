@@ -137,3 +137,104 @@ function isValidPartialAnalysisResponse(response: any): response is Partial<Call
     (response.reasons === undefined || Array.isArray(response.reasons))
   );
 }
+
+export class StreamingAnalyzer {
+  private ws: WebSocket | null = null;
+  private isConnected = false;
+  private reconnectAttempts = 0;
+  private maxReconnectAttempts = 3;
+  
+  constructor(
+    private onAnalysisUpdate: (analysis: Partial<CallAnalysisType>) => void,
+    private onError: (error: string) => void
+  ) {}
+
+  connect() {
+    try {
+      // Clear existing connection
+      this.disconnect();
+
+      const wsUrl = process.env.EXPO_PUBLIC_API_URL?.replace('http', 'ws') || 'ws://192.168.244.85:3000';
+      this.ws = new WebSocket(`${wsUrl}/ws`);
+
+      this.ws.onopen = () => {
+        console.log('WebSocket connected');
+        this.isConnected = true;
+        this.reconnectAttempts = 0;
+      };
+
+      this.ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          console.log('Received WebSocket data:', data);
+          
+          if (data.error) {
+            this.onError(data.error);
+          } else {
+            this.onAnalysisUpdate({
+              suspicious: data.suspicious,
+              confidence: data.confidence,
+              reasons: data.reasons,
+              timestamps: []
+            });
+          }
+        } catch (err) {
+          console.error('Error parsing WebSocket message:', err);
+        }
+      };
+
+      this.ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        this.handleConnectionError();
+      };
+
+      this.ws.onclose = () => {
+        console.log('WebSocket closed');
+        this.isConnected = false;
+        this.handleConnectionError();
+      };
+    } catch (error) {
+      console.error('WebSocket connection error:', error);
+      this.handleConnectionError();
+    }
+  }
+
+  private handleConnectionError() {
+    if (this.reconnectAttempts < this.maxReconnectAttempts) {
+      this.reconnectAttempts++;
+      console.log(`Reconnecting... Attempt ${this.reconnectAttempts}`);
+      setTimeout(() => this.connect(), 1000 * this.reconnectAttempts);
+    } else {
+      this.onError('Failed to establish WebSocket connection');
+    }
+  }
+
+  sendAudio(base64Audio: string) {
+    if (this.ws && this.isConnected) {
+      try {
+        // Send the base64 audio directly
+        this.ws.send(base64Audio);
+        console.log('Sent audio chunk:', base64Audio.substring(0, 50) + '...');
+      } catch (error) {
+        console.error('Error sending audio:', error);
+        this.onError('Failed to send audio data');
+      }
+    } else {
+      console.warn('WebSocket not connected, attempting to reconnect...');
+      this.connect();
+    }
+  }
+
+  disconnect() {
+    if (this.ws) {
+      try {
+        this.ws.close();
+      } catch (error) {
+        console.error('Error closing WebSocket:', error);
+      } finally {
+        this.ws = null;
+        this.isConnected = false;
+      }
+    }
+  }
+}
